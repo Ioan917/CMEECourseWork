@@ -37,5 +37,9 @@ No specific instructions for installing the project.
 * E.coli.fasta: Genomic data for UnixPrac1.txt.
 ### Results
 ## Author name and contact
+<<<<<<< HEAD
 Ioan Evans  
+=======
+Ioan Evans
+>>>>>>> b4923e40a6cb9c61cc9304502381e5892b5f6a5b
 email: ie917@ic.ac.uk
