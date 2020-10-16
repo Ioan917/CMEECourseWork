@@ -1,9 +1,14 @@
-wc -l 407228326.fasta 407228412.fasta E.coli.fasta #1 - 28, 127 and 78104 new lines respectively. Total of 78259 lines.
-tail -n +2 E.coli.fasta #2 - use tail -n +2 E.coli.fasta | wc -l to check that the number of lines of the new output is now one less than in the previous exercise (i.e. first line has been removed).
-tail -n +2 E.coli.fasta | tr -d "\n\r" | wc -m #3 - Sequence length of 4686137.
-tail -n +2 E.coli.fasta | tr -d "\n\r" | grep -o ATGC | wc #4 - 21968 matches.
+#1 - Count number of lines in each file
+wc -l ../Data/407228326.fasta ../Data/407228412.fasta ../Data/E.coli.fasta
 
-!!! Review this !!! #5 - needs to be one line
-tail -n +2 E.coli.fasta | grep -c AT #5 - 76845
-tail -n +2 E.coli.fasta | grep -c GC #5 - 77099
-echo 76845/77099 | bc -l #5 - 0.9967 4dp
+#2 - Print everything starting from the second line
+tail -n +2 ../Data/E.coli.fasta
+
+#3 - Count the sequence length
+tail -n +2 ../Data/E.coli.fasta | tr -d "\n\r" | wc -m
+
+#4 - Count the number of matches of "ATGC"
+tail -n +2 ../Data/E.coli.fasta | tr -d "\n\r" | grep -o ATGC | wc -w
+
+#5 - Compute the AT/GC ratio to 3 decimal places
+echo "scale=3;" $(grep -o "A\|T" ../Data/E.coli.fasta | wc -l) / $(grep -o "G\|C" ../Data/E.coli.fasta | wc -l) | bc

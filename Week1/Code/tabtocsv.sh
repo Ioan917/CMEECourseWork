@@ -7,7 +7,23 @@
 # Arguments: 1 -> tab delimited file
 # Date: Oct 2020
 
-echo "Creating a comma delimited version of $1 ..."
-cat $1 | tr -s "\t" "," >> $1.csv
-echo "Done!"
-exit
+BASE="${1%.*}"
+
+if [[ -f $BASE.txt ]] && [[ "$#" = 1 ]] # checks if only 1 txt file selected
+then
+    echo "Creating a comma delimited version of $BASE.txt ..."
+    cat $BASE.txt | tr -s "\t" "," >> $BASE.csv
+    echo "Done!"
+    exit
+elif [[ ! -f $BASE.* ]] && [[ "$#" = 1 ]] # wrong file format
+then
+    echo "wrong file type"
+elif [[ "$#" = 0  ]] # if no file selected
+then
+    echo "no file selected"
+elif [[ "$#" -ne 1 ]] # if more than one file selected
+then
+    echo "only one file at a time please"
+else # if anything else goes wrong
+    echo "hit the books, something else went wrong"
+fi
