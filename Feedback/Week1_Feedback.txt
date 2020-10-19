@@ -149,7 +149,7 @@ no files selected
 
 Code ran without errors
 
-Time consumed = 0.00767s
+Time consumed = 0.00443s
 
 ======================================================================
 Inspecting script file tiff2png.sh...
@@ -194,7 +194,7 @@ no file selected
 
 Code ran without errors
 
-Time consumed = 0.01146s
+Time consumed = 0.00582s
 
 ======================================================================
 Inspecting script file UnixPrac1.txt...
@@ -299,7 +299,7 @@ no file selected
 
 Code ran without errors
 
-Time consumed = 0.01677s
+Time consumed = 0.00514s
 
 ======================================================================
 Inspecting script file FirstBiblio.bib...
@@ -368,7 +368,7 @@ no files selected
 
 Code ran without errors
 
-Time consumed = 0.01263s
+Time consumed = 0.00399s
 
 ======================================================================
 Inspecting script file CompileLaTeX.sh...
@@ -422,37 +422,35 @@ Encountered error (or warning):
 bibtex: Need exactly one file argument.
 Try `bibtex --help' for more information.
 
-** (evince:43091): WARNING **: 16:50:43.966: Error when getting information for file “/home/mhasoba/Documents/Teaching/IC_CMEE/2020-21/Coursework/StudentRepos/IoanEvans_ie917/Week1/Code/.pdf”: No such file or directory
+** (evince:47401): WARNING **: 17:48:56.640: Error when getting information for file “/home/mhasoba/Documents/Teaching/IC_CMEE/2020-21/Coursework/StudentRepos/IoanEvans_ie917/Week1/Code/.pdf”: No such file or directory
 
-** (evince:43091): WARNING **: 16:50:43.966: set_filenames: Error when getting information for file “/home/mhasoba/Documents/Teaching/IC_CMEE/2020-21/Coursework/StudentRepos/IoanEvans_ie917/Week1/Code/.pdf”: No such file or directory
+** (evince:47401): WARNING **: 17:48:56.641: set_filenames: Error when getting information for file “/home/mhasoba/Documents/Teaching/IC_CMEE/2020-21/Coursework/StudentRepos/IoanEvans_ie917/Week1/Code/.pdf”: No such file or directory
 
-** (evince:43091): WARNING **: 16:50:43.994: Error setting file metadata: No such file or directory
+** (evince:47401): WARNING **: 17:48:56.672: Error setting file metadata: No such file or directory
 
-** (evince:43091): WARNING **: 16:50:43.994: Error setting file metadata: No such file or directory
+** (evince:47401): WARNING **: 17:48:56.672: Error setting file metadata: No such file or directory
 
-** (evince:43091): WARNING **: 16:50:43.994: Error setting file metadata: No such file or directory
+** (evince:47401): WARNING **: 17:48:56.672: Error setting file metadata: No such file or directory
 
-** (evince:43091): WARNING **: 16:50:43.994: Error setting file metadata: No such file or directory
+** (evince:47401): WARNING **: 17:48:56.672: Error setting file metadata: No such file or directory
 
-** (evince:43091): WARNING **: 16:50:43.994: Error setting file metadata: No such file or directory
+** (evince:47401): WARNING **: 17:48:56.672: Error setting file metadata: No such file or directory
 
-** (evince:43091): WARNING **: 16:50:43.994: Error setting file metadata: No such file or directory
+** (evince:47401): WARNING **: 17:48:56.673: Error setting file metadata: No such file or directory
 
-** (evince:43091): WARNING **: 16:50:43.994: Error setting file metadata: No such file or directory
+** (evince:47401): WARNING **: 17:48:56.673: Error setting file metadata: No such file or directory
 
-** (evince:43091): WARNING **: 16:50:43.994: Error setting file metadata: No such file or directory
+** (evince:47401): WARNING **: 17:48:56.673: Error setting file metadata: No such file or directory
 
-** (evince:43091): WARNING **: 16:50:43.994: Error setting file metadata: No such file or directory
+** (evince:47401): WARNING **: 17:48:56.673: Error setting file metadata: No such file or directory
 
-** (evince:43091): WARNING **: 16:50:43.994: Error setting file metadata: No such file or directory
+** (evince:47401): WARNING **: 17:48:56.673: Error setting file metadata: No such file or directory
 
-** (evince:43091): WARNING **: 16:50:43.994: Error setting file metadata: No such file or directory
+** (evince:47401): WARNING **: 17:48:56.673: Error setting file metadata: No such file or directory
 
-** (evince:43091): WARNING **: 16:50:43.994: Error setting file metadata: No such file or directory
+** (evince:47401): WARNING **: 17:48:56.673: Error setting file metadata: No such file or directory
 
-** (evince:43091): WARNING **: 16:50:44.001: Error setting file metadata: No such file or directory
-
-** (evince:43091): WARNING **: 16:50:44.001: Error setting file metadata: No such file or directory
+** (evince:47401): WARNING **: 17:48:56.711: Error setting file metadata: No such file or directory
 
 ======================================================================
 Inspecting script file boilerplate.sh...
@@ -486,7 +484,7 @@ This is a shell script!
 
 Code ran without errors
 
-Time consumed = 0.00978s
+Time consumed = 0.00532s
 
 ======================================================================
 Inspecting script file FirstExample.tex...
@@ -577,7 +575,7 @@ no file selected
 
 Code ran without errors
 
-Time consumed = 0.02050s
+Time consumed = 0.00754s
 
 ======================================================================
 Inspecting script file MyExampleScript.sh...
@@ -608,7 +606,7 @@ Hello mhasoba
 
 Code ran without errors
 
-Time consumed = 0.00965s
+Time consumed = 0.00887s
 
 ======================================================================
 ======================================================================
