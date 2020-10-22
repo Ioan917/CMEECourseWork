@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-"""Some string exemplifying the use of control statements"""
+"""Some functions exemplifying the use of control statements"""
 #docstrings are considered part of the running code (normal comments are stripped).
 #Hence, you can access your doctring at run time.
 

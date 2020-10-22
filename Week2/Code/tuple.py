@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+
+"""Creating a conventional loop to present data from a tuple in a new format."""
+
 birds = ( ('Passerculus sandwichensis','Savannah sparrow',18.7),
           ('Delichon urbica','House martin',19),
           ('Junco phaeonotus','Yellow-eyed junco',19.5),
@@ -6,16 +10,14 @@ birds = ( ('Passerculus sandwichensis','Savannah sparrow',18.7),
         )
 
 # Birds is a tuple of tuples of length three: latin name, common name, mass.
-# write a (short) script to print these on a separate line or output block by species 
-# 
-# A nice example output is:
-# 
-# Latin name: Passerculus sandwichensis
-# Common name: Savannah sparrow
-# Mass: 18.7
-# ... etc.
+# Short script to print these on a separate line or output block by species 
 
-# Hints: use the "print" command! You can use list comprehensions!
+### Conventional loop ###
 
 for i in birds:
-    print("Latin name:",i[0],'\n',"Common name:",i[1],'\n',"Mass:",i[2],'\n')
+    print("Latin name:",i[0],'\n' + "Common name:",i[1],'\n' + "Mass:",i[2],'\n')
+
+### List comprehension ###
+
+#data = "".join([str("Latin name:%s\nCommon name:%s\nMass:%s\n" + '\n') % (row[0], row[1], row[2]) for row in birds])
+#print(data)

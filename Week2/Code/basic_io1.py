@@ -1,8 +1,12 @@
-###############
-# FILE INPUT
-###############
+#!/usr/bin/env python3
+
+"""Example of importing data into python"""
+
+## File input
+
 # Open a file for reading
 f = open('../Sandbox/test.txt', 'r')
+
 # use "implicit" for loop:
 # if the object is a file, python will cycle over lines
 for line in f:
@@ -11,7 +15,7 @@ for line in f:
 #close the file
 f.close()
 
-# Same example, skip blank lines
+## Same example, skip blank lines
 f = open('../Sandbox/test.txt', 'r')
 for line in f:
     if len(line.strip()) > 0:

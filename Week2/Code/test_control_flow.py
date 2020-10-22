@@ -42,5 +42,5 @@ def even_or_odd(x=0): # if not specified, x should take value 0.
 
 doctest.testmod() # to run with embedded tests
 # python -m doctest -v test_control_flow.py
-    # type into terminal to test "on the fly"
+    # type line 44 into terminal to test "on the fly"
     # removes need for doctest.testmod()

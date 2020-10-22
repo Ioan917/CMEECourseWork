@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+
+"""Functions exemplifying the combined use of conditionals and loops."""
+
 for j in range(12):
     if j % 3 == 0:
         print('hello') # hello prints 4 times

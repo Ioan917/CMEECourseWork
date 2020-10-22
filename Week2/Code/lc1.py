@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+
+"""Writing conventional loops and list comprehensions to perform the same function."""
+
 birds = ( ('Passerculus sandwichensis','Savannah sparrow',18.7),
           ('Delichon urbica','House martin',19),
           ('Junco phaeonotus','Yellow-eyed junco',19.5),
@@ -5,9 +9,7 @@ birds = ( ('Passerculus sandwichensis','Savannah sparrow',18.7),
           ('Tachycineata bicolor','Tree swallow',20.2),
          )
 
-#(1) Write three separate list comprehensions that create three different
-# lists containing the latin names, common names and mean body masses for
-# each species in birds, respectively. 
+### List Comprehensions ###
 
 ## Latin names
 
@@ -24,8 +26,7 @@ print(common_names)
 body_masses = [i[2] for i in birds]
 print(body_masses)
 
-# (2) Now do the same using conventional loops (you can choose to do this 
-# before 1 !). 
+### Conventional Loops ###
 
 ## Latin names
 
@@ -47,10 +48,3 @@ mass_loops = []
 for i in birds:
     mass_loops.append(i[2])
 print(mass_loops)
-
-# A nice example out out is:
-# Step #1:
-# Latin names:
-# ['Passerculus sandwichensis', 'Delichon urbica', 'Junco phaeonotus', 'Junco hyemalis', 'Tachycineata bicolor']
-# ... etc.
- 

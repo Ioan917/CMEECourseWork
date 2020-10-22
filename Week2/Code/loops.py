@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+
+"""Exploring use of for and while loops in python."""
+
 # FOR loops in python
 for i in range(5):
     print(i)

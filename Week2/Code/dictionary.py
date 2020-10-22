@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+
+"""Populating a dictionary from a list of tuples."""
+
 taxa = [ ('Myotis lucifugus','Chiroptera'),
          ('Gerbillus henleyi','Rodentia',),
          ('Peromyscus crinitus', 'Rodentia'),
@@ -10,18 +14,9 @@ taxa = [ ('Myotis lucifugus','Chiroptera'),
          ('Canis lupus', 'Carnivora'),
         ]
 
-# Write a short python script to populate a dictionary called taxa_dic 
-# derived from taxa so that it maps order names to sets of taxa.
-# 
-# An example output is:
-#  
-# 'Chiroptera' : set(['Myotis lucifugus']) ... etc.
-#  OR,
-# 'Chiroptera': {'Myotis lucifugus'} ... etc
+# Populate a dictionary called taxa_dic 
 
-taxa_dict = []
-for i in taxa:
-        taxa_dict.extend((i[1], i[0]))
-print(taxa_dict)
-
-# i[1]: {i[0]}
+taxa_dic = {}
+for row in taxa:
+    taxa_dic.setdefault(row[1], set()).add(row[0])
+print(taxa_dic)

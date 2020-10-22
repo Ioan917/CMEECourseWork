@@ -1,16 +1,27 @@
-def makeabug(x):
-    y = x**4
-    z = 0.
-    y = y/z # ZeroDivisionError: float division by zero
-    return y
+#!/usr/bin/env python3
 
-makeabug(25)
+"""Some functions used to test %pdb for debugging."""
+
+def buggyfunc(x):
+    """Buggy function"""
+    y = x
+    for i in range(x):
+        try:
+            y = y-1
+            z = x/y # ZeroDivisionError: division by zero
+        except:
+            print(f"This didn't work; x = {x}; y = {y}")
+        else:
+            print(f"OK; x = {x}; y = {y}, z = {z};")
+    return z
+
+buggyfunc(20)
 
 ## To debug function
 # %pdb
 # %run debugme.py
 
-# Alternatively, run the code in ipython with ruun -d flag
+# Alternatively, run the code in ipython with run -d flag
 
 ## Paranoid programming
 # import ipdb; ipdb.set_trace()

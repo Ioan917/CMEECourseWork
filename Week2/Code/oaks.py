@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+
+"""Exercise to compare the use of conventional loops and list comprehensions."""
+
 ## Finds just those taxa that are oak trees from a list of species
 
 taxa = [    'Quercus robur',

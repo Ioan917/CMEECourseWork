@@ -1,3 +1,9 @@
+#!/usr/bin/env python3
+
+"""Functions exemplifying the use of the csv package in manipulating CSV files."""
+
+# Imports
+
 import csv
 
 # Read a file containing:
@@ -17,7 +23,7 @@ f.close()
 f = open('../Data/testcsv.csv', 'r')
 g = open('../Data/bodymass.csv', 'w')
 
-csvreader = csv.reader(f)
+csvread = csv.reader(f)
 csvwrite = csv.writer(g)
 for row in csvread:
     print(row)
