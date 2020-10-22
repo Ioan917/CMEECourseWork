@@ -1,0 +1,26 @@
+find . -type f -exec ls -s {} \; | sort -n | head -10
+
+# find
+# search for files in a directory hierarchy
+
+# .
+# current directory
+
+# -type f
+# reguar file
+
+# -exec
+# execute on each file that you find
+
+# ls -s
+# list directory contents, sort by file size, largest first
+
+# {} \;
+# placeholder for the file, perform ls -s on each file that you find
+# \: required to terminate {}, can also use + which is quicker
+
+# sort -n
+# sort lines of text files, compare according to string numerical value
+
+# head -10
+# print the first 10 lines of each file to standard output
