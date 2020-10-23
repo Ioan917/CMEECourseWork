@@ -1,6 +1,3 @@
-## make each block into single functions
-## list each function under the main()
-
 #!/usr/bin/env python3
 
 """Python program that finds the best alignment of two DNA sequences 
@@ -12,29 +9,17 @@ __version__ = '0.0.1'
 __license__ = "License for this code/program"
 
 # Imports
-import csv # check do I use this
-import ipdb
+
+import csv
 import sys
 
-# Importing data
+## 1. Assigning to respective variables
 
-# Input
-
-f = open('../Data/TestSeq.csv', 'r') # ?_io.TextIOWrapper
-
-f_read = csv.reader(f) # once opened, need to read the file in order to access it
-
-for row in f_read:
-    seq1 = row[0]
-    seq2 = row[1]
-
-f.close()
-
-# Ensure that s1 and l1 correspond to the longer sequence and
-            # s2 and l2 correspond to the shorter sequence
-def ensure_s1_is_longer_seq():
+def s1_longer(seq1, seq2):
+    """Ensure each s1 and l1 correspond to the longer sequence and s2 and l2 to the shorter sequence"""
     l1 = len(seq1)
     l2 = len(seq2)
+    
     if l1 >= l2:
         s1 = seq1
         s2 = seq2
@@ -42,10 +27,12 @@ def ensure_s1_is_longer_seq():
         s1 = seq2
         s2 = seq1
         l1, l2 = l2, l1
+    return s1, s2, l1, l2
 
-# A function that computes a score by returning the number of matches starting
-# from arbitrary startpoint (chosen by user)
+## 2. Calculating number of matches
+
 def calculate_score(s1, s2, l1, l2, startpoint):
+    """Computes a score by returning the number of matches starting from an arbitrary startpoint (chosen by user)"""
     matched = "" # to hold string displaying alignements
     score = 0
     for i in range(l2):
@@ -57,56 +44,91 @@ def calculate_score(s1, s2, l1, l2, startpoint):
                 matched = matched + "-" # add "-" to the new string to indicate no match
 
     # some formatted output
-    print("." * startpoint + matched) # "." * startpoint is printing e.g. ..... if the startpoint is 5 - shouldn't this be .... if the startpoint is 5???      
+    print("." * startpoint + matched)    
     print("." * startpoint + s2)
     print(s1)
     print(score) 
     print(" ") # returns blank line
 
-    return score
+    return score, matched
 
-# Test the function with some example starting points:
-calculate_score(s1, s2, l1, l2, 0)
-calculate_score(s1, s2, l1, l2, 1)
-calculate_score(s1, s2, l1, l2, 5)
+## 3. Find the best match
 
-# Find the best match (highest score) for the two sequences
-my_best_align = None
-my_best_score = -1
+def best_match(s1, s2, l1, l2):
+    """Find the best match (highest score) for the two sequences"""
+    my_best_align = None
+    my_best_score = -1
+    my_best_match = None
 
-for i in range(l1): # Note that you just take the last alignment with the highest score
-    z = calculate_score(s1, s2, l1, l2, i)
-    if z > my_best_score:
-        my_best_align = "." * i + s2
-        my_best_score = z 
+    for i in range(l1): # Note that you just take the last alignment with the highest score
+        z, matched = calculate_score(s1, s2, l1, l2, i)
+        if z > my_best_score:
+            my_best_align = "." * i + s2
+            my_best_score = z
+            my_best_match = "." * i + matched
 
-## Output
+    # some formatted output
+    print(my_best_match)    
+    print(my_best_align)
+    print(s1)
+    print("Best score: " + str(my_best_score))
+    print(" ") # returns blank line
 
-def output():
-    g = open("../Results/Best_align.txt", "w")
-    g.write(str(my_best_align) + "\n" + str(s1) + "\n" + "Best score: " + str(my_best_score))
-    sys.stdout = open("../Results/Best_align_result.txt", "w")
+    return my_best_align, my_best_score, my_best_match
 
-### argv ###
+## argv
 
 def main(argv):
-    if [ len(sys.argv) == 2 ]:
-        # run above code
-    elif [ len(sys.argv) != 2 ]:
-        if [ len(sys.argv) == 1 ]:
-            f = open('../Data/TestSeq.csv', 'r')
-            print("No data file specified." + "\n" + "Using default data file.")
-        else [ len(sys.argv) == 0]:
-            print("How? Isn't this impossible?")
-    else:
-        print("Something else went wrong")
-    return 0
 
-    output(sys.argv[1])
+    # Open and read the inputted data file.
+    f = open("../Data/TestSeq.csv", "r")
+    f_read = csv.reader(f)
+    
+    # Prepare a .csv file for the next functions.
+    for row in f_read:
+        seq1 = row[0]
+        seq2 = row[1]
+
+    # Swab sequences to make s1 and l1 correspond to the longer sequence
+    s1, s2, l1, l2 = s1_longer(seq1, seq2)
+
+    # Find the best score i.e. best alignment between the two sequences
+    my_best_align, my_best_score, my_best_match = best_match(s1, s2, l1, l2)
+
+    # Output file
+    g = open("../Results/Best_align.txt", "w")
+    g.write(str(my_best_match) + "\n" + str(my_best_align) + "\n" + str(s1) + "\n" + "Best score: " + str(my_best_score))
+
+    f.close() # Close input file
+    g.close() # Close output file
+
+    return 0
     
 if __name__ == "__main__":
     status = main(sys.argv)
-    print('This program is being run by itself')
-else:
-    print('I am being imported from another module')
     sys.exit(status)
+
+
+## Things to think about adding later
+
+#    if [ len(sys.argv) == 2 ]:
+#        f_read = open_read(sys.argv[1])
+#        seq1, seq2 = prep()
+#        s1, s2, l1, l2 = s1_longer()
+#        score = calculate_score()
+#        my_best_align, my_best_score = best_match()
+#        output()
+#    elif [ len(sys.argv) != 2 ]:
+#        if [ len(sys.argv) == 1 ]:
+#            print("No data file specified." + "\n" + "Using default alignment data.")
+#            f_read = open_read()
+#            seq1, seq2 = prep()
+#            s1, s2, l1, l2 = s1_longer()
+#            score = calculate_score()
+#            my_best_align, my_best_score = best_match()
+#            output()
+#        else:
+#            print("How? Isn't this impossible?")
+#    else:
+#        print("Something else went wrong")
+#    return 0

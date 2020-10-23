@@ -73,7 +73,7 @@ def foo_6(x=9):
 
 
 def main(argv):
-    
+    """Main entry of the program"""
     print(foo_1(22))
     print(foo_2(33, 21))
     print(foo_3(120, 146, 132))

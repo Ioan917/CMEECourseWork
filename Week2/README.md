@@ -33,7 +33,9 @@ No specific instructions for installing the project.
 * using_name.py: Example to demonstrate of the use of name in python programs.
 ### Data
 * bodymass.csv: Subset of the testcsv.csv file, made by running the code in basic_csv.csv.
+* test.txt: Test file used to practice importing data into python. Moved from Sandbox file because file is needed to run basic_io1.py.
 * testcsv.csv: Species, Infraorder, Family, Distribution, Body mass male (Kg) data used in basic_csv.csv to test the csv package.
+* testp.p: Test file used as an example of storing objects in python. Moved from Sandbox file because file is needed to run basic_io3.py.
 * TestSeq.csv: Default sequences to be used for the align_seqs.py practical.
 ### Results
 Empty file.
