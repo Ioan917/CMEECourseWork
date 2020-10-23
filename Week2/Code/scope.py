@@ -75,6 +75,7 @@ def a_function():
     _a_global = 10
 
     def _a_function2():
+        """Function inside a function."""
         global _a_global
         _a_global = 20
     

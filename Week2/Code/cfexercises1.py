@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-# Make more user  friendly by adding comments in return statements instead of just returning the values
-
 """Exploring use of control statements and module like structure."""
 
 __author__ = 'Ioan Evans (ie917@ic.ac.uk)'

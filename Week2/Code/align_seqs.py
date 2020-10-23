@@ -79,7 +79,7 @@ def best_match(s1, s2, l1, l2):
 ## argv
 
 def main(argv):
-
+    """Main entry of the program"""
     # Open and read the inputted data file.
     f = open("../Data/TestSeq.csv", "r")
     f_read = csv.reader(f)
