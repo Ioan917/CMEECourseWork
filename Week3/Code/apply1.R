@@ -1,3 +1,5 @@
+#!/usr/bin/env R
+
 ## Build a random matrix
 M <- matrix(rnorm(100), 10, 10)
 
@@ -12,3 +14,5 @@ print(RowVars)
 ## By column
 ColMeans <- apply(M, 2, mean)
 print(ColMeans)
+
+print("Script done!")

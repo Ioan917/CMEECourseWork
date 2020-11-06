@@ -1,3 +1,5 @@
+#!/usr/bin/env R
+
 M <- matrix( runif(1000000), 1000, 1000)
 
 SumAllElements <- function(M) {
@@ -16,3 +18,5 @@ print( system.time(SumAllElements(M)))
 
 print("Using the in-built vectorized function, the time taken is:")
 print(system.time(sum(M)))
+
+print("Script done!")

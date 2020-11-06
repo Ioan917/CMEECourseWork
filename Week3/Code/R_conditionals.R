@@ -1,3 +1,5 @@
+#!/usr/bin/env R
+
 # Checks if an integer is even
 
 is.even <-  function(n = 2) {
@@ -39,3 +41,5 @@ is.prime <- function(n) {
 }
 
 print(is.prime(3))
+
+print("Script done!")

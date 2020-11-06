@@ -1,3 +1,5 @@
+#!/usr/bin/env R
+
 # A boilerplate script
 
 MyFunction <- function(Arg1, Arg2) {
@@ -11,3 +13,5 @@ MyFunction <- function(Arg1, Arg2) {
 
 MyFunction(1,2) # test the function
 MyFunction("Riki","Tiki") # a different test
+
+print("Script done!")

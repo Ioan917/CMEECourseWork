@@ -1,3 +1,5 @@
+#!/usr/bin/env R
+
 # This function calculates heights of trees given distance of each tree
 # from its base and angle to its top, using the trigonometric formula
 # 
@@ -22,6 +24,8 @@ TreeHeight <- function(degrees, distance) {
     
     return(height)
 }
+
+print(paste("The heigh of a tree with an angle of 37 degrees at distance 40m is", as.character(TreeHeight(37,40))))
 
 # Assigning the output of the function to a column
 

@@ -1,3 +1,5 @@
+#!/usr/bin/env R
+
 SomeOperation <- function(v) {
     if (sum(v) > 0) { # note that sum(v) is a single (scalar) value
     return (v * 100)
@@ -7,3 +9,5 @@ SomeOperation <- function(v) {
 
 M <- matrix(rnorm(100), 10, 10)
 print( apply(M, 1, SomeOperation))
+
+print("Script done!")

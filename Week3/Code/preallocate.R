@@ -1,3 +1,5 @@
+#!/usr/bin/env R
+
 NoPreallocFun <- function(x) {
     a <- vector() # empty vector
     for (i in 1:x) {
@@ -7,7 +9,7 @@ NoPreallocFun <- function(x) {
     }
 }
 
-system.time(NoPreallocFun(10))
+print(system.time(NoPreallocFun(10)))
 
 PreallocFun <- function(x) {
     a <- rep(NA, x) # pre-allocated vector
@@ -18,4 +20,6 @@ PreallocFun <- function(x) {
     }
 }
 
-system.time( PreallocFun(10))
+print(system.time( PreallocFun(10)))
+
+print("Script done!")

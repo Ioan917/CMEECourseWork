@@ -1,3 +1,5 @@
+#!/usr/bin/env R
+
 i <- 0 # initialise i
 while (i < Inf) {
     if (i == 10) {
@@ -8,3 +10,5 @@ while (i < Inf) {
         i <- i + 1 # update i
     }
 }
+
+print("Script complete!")

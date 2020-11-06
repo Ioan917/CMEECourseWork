@@ -1,3 +1,4 @@
+#!/usr/bin/env R
 
 ### if statements ###
 
@@ -42,5 +43,7 @@ for (i in v1) {
 i <- 0
 while (i < 10) {
     i <- i + 1
-    print(i^2)
+    print(i ^ 2)
 }
+
+print("Script complete!")

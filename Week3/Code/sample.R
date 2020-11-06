@@ -1,3 +1,5 @@
+#!/usr/bin/env R
+
 ### Functions ###
 
 ## A function to take a sample of size n from a population "popn" ad return its mean
@@ -67,3 +69,5 @@ print(system.time(sapply_sample(popn, n, num)))
 
 print("The vectorized lapply approach takes:")
 print(system.time(lapply_sample(popn, n, num)))
+
+print("Script done!")

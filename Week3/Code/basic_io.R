@@ -1,3 +1,5 @@
+#!/usr/bin/env R
+
 # A simple script to illustrate R input-output
 # Run line by line and check inputs to understand what it is doing
 

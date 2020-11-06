@@ -1,3 +1,5 @@
+#!/usr/bin/env R
+
 ## Writing the function
 
 doit <- function(x) {
@@ -31,3 +33,5 @@ result <- vector("list", 15) # Preallocate / Initialize
 for (i in 1:15) {
     result[[i]] <- try(doit(popn), FALSE)
 }
+
+print("Script done!")
