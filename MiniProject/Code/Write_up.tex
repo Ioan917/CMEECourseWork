@@ -1,0 +1,58 @@
+\documentclass[11pt]{article}
+
+\usepackage{setspace}
+\onehalfspacing
+
+\usepackage{titlesec}
+
+\usepackage{graphicx}
+\graphicspath{ {../Data/} }
+
+\usepackage{lineno} % check when to start reading lines from??
+
+\usepackage{authblk}
+
+\title{Write the title here.}
+
+\author{Ioan Evans}
+\affil{Department of Life Sciences, Imperial College London}
+
+% figure out a way to insert a wordcount <= 3500 words excluding title page, 
+% fig and table captions / legends
+
+\date{today}
+
+\begin{document}
+    \maketitle
+
+\newpage
+\linenumbers
+
+    \begin{abstract}
+    This is a test line. \\*
+    Here's another testline.
+        
+    \end{abstract}
+
+    \section{Introduction}
+    Objectives of the study.
+
+    \section{Methods}
+
+        \subsection{Computing tools}
+        State how each of the scripting languages (bash, R, python) was used
+        and what packages within them were used and a justification why.
+
+
+            Python for script building workflow - come with the subprocess package
+
+    \section{Data}
+
+    \section{Results}
+        
+    \section{Discussion}
+        
+\end{document}
+
+% Questions
+% Comfirm what is meant by the first bullet point under Marking Criteria/ Report
