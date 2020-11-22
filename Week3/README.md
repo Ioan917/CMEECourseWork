@@ -1,6 +1,6 @@
 # Week3
 ## Brief description
-Code and data files for the third week of the CMEE course, covering the the introduction to R, data wrangling and plotting.
+Code and data files for the third week of the CMEE course, covering the introduction to R, data wrangling and plotting.
 ## Languages
 * R
 ## Dependencies
