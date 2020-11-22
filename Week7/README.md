@@ -30,7 +30,7 @@ No specific instructions.
 * TestR.py: Code exemplifying the use of the subprocess package to run R scripts from python. 
 * TestR.R: Simple R code to used in the TestR.py script.
 * timeitme.py: Example code comparing the run time of functions from profileme.py and profileme2.py using the timeit module.
-* using_os.py: Practical exercise 
+* using_os.py: Practical exercise listing directories, subdirectories and files.
 ### Data
 * blackbirds.txt: Taxonomic data used in the blackbirds.py practical.
 * NagyEtAl1999.csv: Taxonomic, mass and energy data used in the fmr.R script.

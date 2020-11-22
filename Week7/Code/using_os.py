@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-""" This is blah blah"""
+"""Use subprocess.os.walk to find and list directories, subdirectories and files."""
 
 import subprocess
 

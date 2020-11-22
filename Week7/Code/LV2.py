@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+"""Defining and plotting the Lotka-Volterra model of population dynamics for inputted parameters."""
+
 ### The Lotka-Volterra model
 
 ## Imports
@@ -27,7 +29,7 @@ K = float(K) # Carrying capacity
 
 ## Define the function
 def dCR_dt(pops, t=0):
-
+    """Lotka-Volterra model with density dependence."""
     R = pops[0]
     C = pops[1]
     dRdt = r * R * (1 - (R / K)) - (a * C * R )

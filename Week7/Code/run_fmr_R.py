@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+"""Example using subprocess to run an R script from python."""
+
 import subprocess
 
 try:

@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+"""Finding strings and reformatting data using regular expressions."""
+
 import re
 
 # Read the file (using a different, more python 3 way, just for fun!)

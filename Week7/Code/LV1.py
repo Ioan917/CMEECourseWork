@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+"""Defining and plotting the Lotka-Volterra model of population dynamics for provided parameters."""
+
 ### The Lotka-Volterra model
 
 ## Imports
@@ -14,7 +16,7 @@ startTime = time.time()
 
 ## Define the function
 def dCR_dt(pops, t=0):
-
+    """Lotka-Volterra model of population dynamics between consumer and resource populations."""
     R = pops[0]
     C = pops[1]
     dRdt = r * R - a * R * C 

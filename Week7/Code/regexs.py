@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+"""Examples of the use of regular expressions."""
+
 import re
 
 my_string = "a given string"

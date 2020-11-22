@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
+"""Run the LV scripts, print the standard output to the console and profile the scripts."""
+
 import subprocess
-import timeit
 
 ## Run LV scripts
 p = subprocess.Popen(["python3", "LV1.py"], 

@@ -1,5 +1,7 @@
 #!/usr/bin/env python3
 
+"""Example using the timeit package to profile functions."""
+
 #########################################################
 # loops vs. list comprehensions: which is faster?
 #########################################################
