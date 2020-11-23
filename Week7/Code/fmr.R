@@ -1,7 +1,5 @@
 #!/usr/bin/env python3
 
-"""Plotting linear regression to data"""
-
 # Plots log(field metabolic rate) against log(body mass) for the Nagy et al 
 # 1999 dataset to a file fmr.pdf.
 
