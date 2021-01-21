@@ -4,8 +4,11 @@
 #docstrings are considered part of the running code (normal comments are stripped).
 #Hence, you can access your doctring at run time.
 
-__author__ = 'Ioan Evans (ie917@ic.ac.uk)'
+__appname__ = 'control_flow.py'
+__author__ = 'Ioan Evans'
+__email__ = 'ie917@ic.ac.uk'
 __version__ = '0.0.1'
+__license__ = "License for this code/program"
 
 import sys
 

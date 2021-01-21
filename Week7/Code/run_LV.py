@@ -1,23 +1,49 @@
-#!/usr/bin/env python3
+#!usr/bin/env python3
 
-"""Run the LV scripts, print the standard output to the console and profile the scripts."""
+"""Imports LV1.py, LV2.py, LV3.py, LV4.py and LV5.py and profiles them"""
 
-import subprocess
+__appname__ = "Run_LV.py"
+__author__ = 'Elin Falla (ef16@ic.ac.uk), Ioan Evans (ie917@ic.ac.uk), Danica Duan (dd1820@ic.ac.uk)'
+__version__ = '0.0.2'
 
-## Run LV scripts
-p = subprocess.Popen(["python3", "LV1.py"], 
-        stdout = subprocess.PIPE, 
-        stderr = subprocess.PIPE)
-stdout, stderr = p.communicate()
+# Imports #
+# Packages
+import cProfile
+import pstats
+import sys
 
-print(stdout.decode())
+# Scripts
+import LV1
+import LV2
+import LV3
+import LV4
+import LV5
 
-q = subprocess.Popen(["python3", "LV2.py", "1", "0.2", "0.5", "0.5", "50"], 
-        stdout = subprocess.PIPE, 
-        stderr = subprocess.PIPE)
-stdout, stderr = q.communicate()
 
-print(stdout.decode())
+scripts = (LV1, LV2, LV3, LV4, LV5)
 
-subprocess.os.system("python3 -m cProfile LV1.py 1 0.2 0.5 0.5 50")
-subprocess.os.system("python3 -m cProfile LV2.py 1 0.2 0.5 0.5 50")
+for script in scripts:
+    # opens profile
+    pr = cProfile.Profile()
+
+    # enables profile
+    pr.enable()
+
+    # runs script within profile
+    script.main([])  # main takes argv which is a list so put in empty list
+
+    # disables profile
+    pr.disable()
+
+    # create stats based on the profile
+    ps = pstats.Stats(pr)
+
+    # sort stats by cumulative time then print first 20 lines to get only largest cumtimes
+    ps.sort_stats('cumtime').print_stats(20)
+
+
+
+
+
+
+

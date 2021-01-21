@@ -1,9 +1,19 @@
-#!/usr/bin/env R
+#!/usr/bin/env Rscript --vanilla
 
-# Load packages
+# Title: Girko.R
+# Author details: Ioan Evans, Contact details: ie917@ic.ac.uk
+# Date: Nov 2020
+# Script and data info: Drawing the results of a simulation of Girko's circular law.
+# Copyright statement: none
 
-library(ggplot2)
+## Housekeeping
+rm(list = ls())
+graphics.off()
 
+## Load packages
+require(ggplot2)
+
+## Create function
 build_ellipse <- function(hradius, vradius){ # function that returns an ellipse
   npoints = 250
   a <- seq(0, 2 * pi, length = npoints + 1)
@@ -26,27 +36,27 @@ ellDF <- build_ellipse(my_radius, my_radius) # Dataframe to plot the ellipse
 
 names(ellDF) <- c("Real", "Imaginary") # rename the columns
 
-# plot the eigenvalues
+## Plot the eigenvalues
 p <- ggplot(eigDF, aes(x = Real, y = Imaginary))
 p <- p +
   geom_point(shape = I(3)) +
   theme(legend.position = "none")
 
-# now add the vertical and horizontal line
+## Now add the vertical and horizontal line
 p <- p + geom_hline(aes(yintercept = 0))
 p <- p + geom_vline(aes(xintercept = 0))
 
-# finally, add the ellipse
+## Finally, add the ellipse
 p <- p + geom_polygon(data = ellDF, aes(x = Real, y = Imaginary, alpha = 1/20, fill = "red"))
 
 
-# Export as pdf
+## Export as pdf
 
-# Open a pdf file
+## Open a pdf file
 pdf("../Results/Girko.pdf") 
-# 2. Create a plot
+## 2. Create a plot
 print(p)
-# Close the pdf file
+## Close the pdf file
 dev.off()
 
 print("Script done!")

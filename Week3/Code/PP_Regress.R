@@ -1,15 +1,22 @@
-#!/usr/bin/env R
+#!/usr/bin/env Rscript --vanilla
+
+# Title: PP_Regress.R
+# Author details: Ioan Evans, Contact details: ie917@ic.ac.uk
+# Date: Nov 2020
+# Script and data info: Plot regression in subplots using ggplot and export linear model coefficients to a csv.
+# Copyright statement: none
+
+## Housekeeping
+rm(list = ls())
+graphics.off()
 
 ## Load packages
-
-library(ggplot2)
+require(ggplot2)
 
 ## Load data
-
 MyDF <- read.csv("../Data/EcolArchives-E089-51-D1.csv")
 
 ## Plotting
-
 p <- ggplot(MyDF, aes(x = log(Prey.mass), 
                       y = log(Predator.mass), 
                       col =  Predator.lifestage)) +  
@@ -33,8 +40,6 @@ p <- ggplot(MyDF, aes(x = log(Prey.mass),
        x = "log Prey mass in grams",
        y = "log Predator mass in grams")
 
-p
-
 pdf("../Results/PP_Regress.pdf")
 print(p)
 dev.off()
@@ -42,7 +47,6 @@ dev.off()
 ## Calculate the regression results corresponding the lines fitted in the figure
 
 ## log columns
-
 MyDF$log.Predator.mass <- log(MyDF$Predator.mass)
 MyDF$log.Prey.mass <- log(MyDF$Prey.mass)
 
@@ -63,8 +67,7 @@ pl <- subset(MyDF, Type.of.feeding.interaction == "planktivorous")
 pr <- subset(MyDF, Type.of.feeding.interaction == "predacious")
 ins <- subset(MyDF, Type.of.feeding.interaction == "insectivorous")
 
-## predacious?piscivorous
-
+## predacious / piscivorous
 for(i in unique(pp$Predator.lifestage)) {
   model <- lm(pp$log.Prey.mass[pp$Predator.lifestage == i] ~ 
               pp$log.Predator.mass[pp$Predator.lifestage == i])
@@ -82,7 +85,6 @@ for(i in unique(pp$Predator.lifestage)) {
 }
 
 ## piscivorous
-
 for(i in unique(pi$Predator.lifestage)) {
   model <- lm(pi$log.Prey.mass[pi$Predator.lifestage == i] ~ 
               pi$log.Predator.mass[pi$Predator.lifestage == i])
@@ -100,7 +102,6 @@ for(i in unique(pi$Predator.lifestage)) {
 }
 
 ## planktivorous
-
 for(i in unique(pl$Predator.lifestage)) {
   model <- lm(pl$log.Prey.mass[pl$Predator.lifestage == i] ~ 
               pl$log.Predator.mass[pl$Predator.lifestage == i])
@@ -118,7 +119,6 @@ for(i in unique(pl$Predator.lifestage)) {
 }
 
 ## predacious
-
 for(i in unique(pr$Predator.lifestage)) {
   model <- lm(pr$log.Prey.mass[pr$Predator.lifestage == i] ~ 
               pr$log.Predator.mass[pr$Predator.lifestage == i])
@@ -136,7 +136,6 @@ for(i in unique(pr$Predator.lifestage)) {
 }
 
 ## insectivorous
-
 for(i in unique(ins$Predator.lifestage)) {
   model <- lm(ins$log.Prey.mass[ins$Predator.lifestage == i] ~ 
               ins$log.Predator.mass[ins$Predator.lifestage == i])
@@ -154,8 +153,6 @@ for(i in unique(ins$Predator.lifestage)) {
 }
 
 df <- df[-1,]
-
-## Hello Samraat
 
 write.csv(df, "../Results/PP_Regress_Results.csv", row.names = FALSE)
 

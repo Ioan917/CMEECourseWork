@@ -10,13 +10,12 @@ None
 No specific instructions for installing the project.
 ## Project structure and Usage
 ### Code
-* boilerplate.sh
+* boilerplate.sh: Standard bash script.
 * CompiLaTex.sh: Bash script that complies latex with bibtex.
 * ConcatenateTwoFiles.sh: Concatenate the content of two files into one new file.
 * CountLines.sh: Bash script to count the number of lines in a file.
 * csvtospace.sh: Bash script to convert a comma delimited file (.csv) to a space delimited file (.txt).
 * FirstBiblio.bib: Citation for (Einstein, 1905).
-* FirstExample.pdf: .pdf output from FirstExample.tex.
 * FirstExample.tex: First LaTex example.
 * MyExampleScript.sh: More examples of variable assigments in bash, specifically assigning $USER.
 * tabtocsv.sh: Converts tab delimited files (specifically .txt) to comma delimited files (specifically .csv).
@@ -37,5 +36,5 @@ No specific instructions for installing the project.
 * E.coli.fasta: Genomic data for UnixPrac1.txt.
 ### Results
 ## Author name and contact
-<<<<<<< HEAD
-Ioan Evans  
+Ioan Evans
+email: ie917@ic.ac.uk

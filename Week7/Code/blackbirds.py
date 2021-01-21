@@ -2,6 +2,13 @@
 
 """Finding strings and reformatting data using regular expressions."""
 
+__appname__ = 'blackbirds.py'
+__author__ = 'Ioan Evans'
+__email__ = 'ie917@ic.ac.uk'
+__version__ = '0.0.1'
+__license__ = "License for this code/program"
+
+## Packages
 import re
 
 # Read the file (using a different, more python 3 way, just for fun!)

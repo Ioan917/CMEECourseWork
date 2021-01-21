@@ -1,4 +1,9 @@
 #!/bin/bash
+# Author: Ioan ie917@ic.ac.uk
+# Script: variables.sh
+# Desc: Experimenting with variables in bash.
+# Arguments: Strings and numbers when prompted by script.
+# Date: Oct 2020
 
 # Shows the use of variables
 MyVar='some string'
@@ -13,3 +18,5 @@ read a b
 echo 'you entered' $a 'and' $b '. Their sum is:'
 mysum=`expr $a + $b`
 echo $mysum
+
+exit

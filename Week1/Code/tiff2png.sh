@@ -1,4 +1,9 @@
 #!/bin/bash
+# Author: Ioan ie917@ic.ac.uk
+# Script: tiff2png.sh
+# Desc: Convert a .tif file to a .png file.
+# Arguments: A .tif file e.g. bash tiff2png.sh <file.tif>
+# Date: Oct 2020
 
 BASE="${1%.*}"
 
@@ -21,3 +26,5 @@ then
 else # some other error, not specified above
     echo "something else went wrong"
 fi
+
+exit

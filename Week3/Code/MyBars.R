@@ -1,17 +1,25 @@
-#!/usr/bin/env R
+#!/usr/bin/env Rscript --vanilla
+
+# Title: MyBars.R
+# Author details: Ioan Evans, Contact details: ie917@ic.ac.uk
+# Date: Nov 2020
+# Script and data info: Example code used to annotate plots.
+# Copyright statement: none
+
+## Housekeeping
+rm(list = ls())
+graphics.off()
 
 ## Load packages
-
-library(ggplot2)
+require(ggplot2)
 
 ## Load data
-
 a <- read.table("../Data/Results.txt", header = TRUE)
 head(a)
 
 a$ymin <- rep(0, dim(a)[1]) # append a column of zeros
 
-# Print the first linerange
+## Print the first linerange
 p <- ggplot(a)
 p <- p + geom_linerange(data = a, aes(
   x = x,
@@ -22,7 +30,7 @@ p <- p + geom_linerange(data = a, aes(
 colour = "#E69F00",
 alpha = 1/2, show.legend = FALSE)
 
-# Print the second linerange
+## Print the second linerange
 p <- p + geom_linerange(data = a, aes(
   x = x,
   ymin = ymin,
@@ -32,7 +40,7 @@ p <- p + geom_linerange(data = a, aes(
 colour = "#56B4E9",
 alpha = 1/2, show.legend = FALSE)
 
-# Print the third linerange:
+## Print the third linerange:
 p <- p + geom_linerange(data = a, aes(
   x = x,
   ymin = ymin,
@@ -42,17 +50,17 @@ p <- p + geom_linerange(data = a, aes(
 colour = "#D55E00",
 alpha = 1/2, show.legend = FALSE)
 
-# Annotate the plot with labels:
+## Annotate the plot with labels:
 p <- p + geom_text(data = a, aes(x = x, y = -500, label = Label))
 
-# now set the axis labels, remove the legend, and prepare for bw printing
+## now set the axis labels, remove the legend, and prepare for bw printing
 p <- p + scale_x_continuous("My x axis",
                             breaks = seq(3, 5, by = 0.05)) + 
   scale_y_continuous("My y axis") + 
   theme_bw() + 
   theme(legend.position = "none") 
 
-# Export as pdf
+## Export as pdf
 
 pdf("../Results/MyBars.pdf")
 print(p)

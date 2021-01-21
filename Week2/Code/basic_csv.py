@@ -2,6 +2,12 @@
 
 """Functions exemplifying the use of the csv package in manipulating CSV files."""
 
+__appname__ = 'basic_csv.py'
+__author__ = 'Ioan Evans'
+__email__ = 'ie917@ic.ac.uk'
+__version__ = '0.0.1'
+__license__ = "License for this code/program"
+
 # Imports
 
 import csv

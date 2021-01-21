@@ -1,15 +1,22 @@
-#!/usr/bin/env R
+#!/usr/bin/env Rscript --vanilla
+
+# Title: GPDD.R
+# Author details: Ioan Evans, Contact details: ie917@ic.ac.uk
+# Date: Nov 2020
+# Script and data info: Plot latitude and longitude points onto a world map.
+# Copyright statement: none
+
+## Housekeeping
+rm(list = ls())
+graphics.off()
 
 ## Load packages
-
-library(maps)
+require(maps)
 
 ## Load data
-
 load("../Data/GPDDFiltered.RData")
 
 ## Create world map
-
 map(database = "world")
 
 points(gpdd$long, gpdd$lat, pch =  3, cex = 0.5, col = "blue")

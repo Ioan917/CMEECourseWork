@@ -2,6 +2,12 @@
 
 """Functions exemplifying the combined use of conditionals and loops."""
 
+__appname__ = 'cfexercises2.py'
+__author__ = 'Ioan Evans'
+__email__ = 'ie917@ic.ac.uk'
+__version__ = '0.0.1'
+__license__ = "License for this code/program"
+
 for j in range(12):
     if j % 3 == 0:
         print('hello') # hello prints 4 times

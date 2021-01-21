@@ -1,3 +1,9 @@
+Author: Ioan ie917@ic.ac.uk
+Script: N/A
+Desc: Example code to complete the numbered (#) tasks.
+Arguments: N/A
+Date: Oct 2020
+
 #1 - Count number of lines in each file
 wc -l ../Data/407228326.fasta ../Data/407228412.fasta ../Data/E.coli.fasta
 

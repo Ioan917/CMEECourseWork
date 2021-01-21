@@ -1,11 +1,19 @@
-#!/usr/bin/env R
+#!/usr/bin/env Rscript --vanilla
 
+# Title: Vectorize2.R
+# Author details: Ioan Evans, Contact details: ie917@ic.ac.uk
+# Date: Nov 2020
+# Script and data info: Vectorizing a stochastic Ricker model.
+# Copyright statement: none
+
+## Housekeeping
+rm(list = ls())
+graphics.off()
+
+## Set the seed
 set.seed(1)
 
-# Runs the stochastic Ricker equation with gaussian fluctuations
-
-rm(list=ls())
-
+## Runs the stochastic Ricker equation with gaussian fluctuations
 stochrick <- function(p0 = runif(1000, .5, 1.5), r = 1.2, K = 1, sigma = 0.2,numyears=100) {
   
   N <- matrix(NA, numyears, length(p0))  #initialize empty matrix
@@ -27,7 +35,6 @@ stochrick <- function(p0 = runif(1000, .5, 1.5), r = 1.2, K = 1, sigma = 0.2,num
 
 # Now write another function called stochrickvect that vectorizes the above 
 # to the extent possible, with improved performance: 
-
 stochrickvect <- function(p0 = runif(1000, .5, 1.5), r = 1.2, K = 1, sigma = 0.2,numyears=100) {
   
   N <- matrix(NA, numyears, length(p0))  #initialize empty matrix
@@ -41,7 +48,6 @@ stochrickvect <- function(p0 = runif(1000, .5, 1.5), r = 1.2, K = 1, sigma = 0.2
   }
   
   return(N)
-  
 }
 
 print("Non-vectorized Stochastic Ricker takes:")
@@ -51,27 +57,3 @@ print("Vectorized Stochastic Ricker takes:")
 print(system.time(vect<-stochrickvect()))
 
 print("Script done!")
-
-##### ALTERNATIVE IDEA #####
-
-#stochrickvect<-function(
-#  p0 = runif(100,.5,1.5),
-#  r = 1.2, # intrinsic growth rate
-#  K = 1, # carrying capacity
-#  sigma = 0.2,
-#  numyears = 100) {
-#  
-#  #initialize
-#  N <- matrix(NA, numyears, 1000) # creates a vector of NA
-#  N[, 1] <- p0
-#  sig <- replicate(length(p0), rnorm(1, 0, sigma))
-#  
-#  for (pop in 2:1000) {
-#    
-#    N[,pop] <- N[, pop - 1] * exp(r * (1 - N[, pop - 1] / K) + rnorm(1,0,sigma))
-#    
-#  }
-#  
-#  return(N)
-#  
-#}

@@ -1,5 +1,16 @@
-#!/usr/bin/env R
+#!/usr/bin/env Rscript --vanilla
 
+# Title: preallocate.R
+# Author details: Ioan Evans, Contact details: ie917@ic.ac.uk
+# Date: Nov 2020
+# Script and data info: Demonstrate the difference in memory allocation and the speed of operations.
+# Copyright statement: none
+
+## Housekeeping
+rm(list = ls())
+graphics.off()
+
+## Functions
 NoPreallocFun <- function(x) {
     a <- vector() # empty vector
     for (i in 1:x) {

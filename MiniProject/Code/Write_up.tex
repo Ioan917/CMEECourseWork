@@ -1,58 +1,419 @@
 \documentclass[11pt]{article}
 
+% Adjust margin width
+\usepackage{geometry}
+\geometry{legalpaper, portrait, margin=1.5in}
+
+% Line spacing
 \usepackage{setspace}
 \onehalfspacing
 
+% Sectioning format
 \usepackage{titlesec}
 
+% Insert figures
 \usepackage{graphicx}
-\graphicspath{ {../Data/} }
+\graphicspath{ {../Results/} }
 
+% Producing high quality tables
+\usepackage{subcaption,siunitx,booktabs}
+
+% Change page orientation
+\usepackage{lscape}
+
+% Line numbering
 \usepackage{lineno} % check when to start reading lines from??
 
+% Various title styles
 \usepackage{authblk}
 
-\title{Write the title here.}
+% Maths styling
+\usepackage{amsmath}
 
-\author{Ioan Evans}
-\affil{Department of Life Sciences, Imperial College London}
+% Harvard referencing
+\usepackage{natbib}
+\bibliographystyle{abbrvnat}
+\setcitestyle{authoryear,open={(},close={)}} 
 
-% figure out a way to insert a wordcount <= 3500 words excluding title page, 
-% fig and table captions / legends
+% Word Count
+\usepackage{verbatim}
+\newcommand\wordcount{\input{new_wordcount.txt}}
 
-\date{today}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{titlepage}
+    
+    \title{A compelling title.} % max 10-15 words
+
+    \author{Ioan Evans}
+    \affil{Department of Life Sciences, Imperial College London}
+    \date{12/12/2020}
+
+\end{titlepage}
 
 \begin{document}
     \maketitle
+    \wordcount
 
 \newpage
 \linenumbers
 
-    \begin{abstract}
-    This is a test line. \\*
-    Here's another testline.
+    \begin{abstract} % 200 words
+        % Broad opening sentence
+
+        % 1-2 sentences background & knowledge gap
+        Holling -> Real -> Generalised -> Dimensionality?
+        % 1 sentence about study system and questions
+        Using data on the consumption rate of 308 unique combinations of consumer and resource taxa, I assessed the fit of simple phenomenological models and the common functional response models.
+        Compare the relative success of the Type I, Holling's Type II and Type III and the Generalised functional response in describing empirical data.
+        Compare the relative success of each model in different habitats.
+        % 1-2 lines main results
+        The Generalised functional response is the best fit to the empirical data for the most IDs. All Type responses vary between terrestrial and freshwater habitats. Generalised response fits do not vary between different habitats.
+        % 1-2 sentences main conclusions + take home messages + implications
+        The Generalised functional response is the best fit for the most IDs; making the Generalised response the most successful model indescribing functional response data. However, the flexibility of the Generalised response makes it less useful for comparing the differences in functional response between habitat types. The use of the more successful Generalised response should be used with caution, because the phenomenological parameter obscures biological meaning. 
         
     \end{abstract}
 
-    \section{Introduction}
-    Objectives of the study.
+    \section{Introduction} % 500 words
 
-    \section{Methods}
+        The form of functional reponses dramatically affects the dynamics and stability of ecological populations and communities \citep{hastings2013population}. Theory suggests that antagonistic interactions (e.g. feeding interactions) may have negative effects on stability and subsequently on biodiversity \citep{rosenbaum2018fitting}. Functional responses describe the rate of resource consumption by a consumer at different resource densities. Different models assume different limitations on consumption rate and different behavioural patterns that a consumer may display in response to resource density. For example, Holling's Type III response is explained by the phenomena of prey-switching, whereby a predator will choose an alternative prey food item when the density of its preferred prey food item is sufficiently low. Functional responses are central to understanding trophic interactions; determining how consumer populations dynamically respond to consumption, and ultimately how resource populations are regulated. A number of different models have been proposed to describe functional responses of different consumer-resource interactions, however these different responses are rarely evaluated against one another. The literature displays a bias towards the use of a convenient model to describe functional response data, regardless of the availability of other (more promising) models being available.
+            
+        The seminal papers introducing functional responses aimed to describe an underlying mechanism. Holling described three discrete functional responses: Type I, II \citep{holling1959some} and III \citep{holling1959some}. More modern research has suggested that functional responses do not strictly conform to any of the Type responses, but rather lie on a continuum, somehwhere between the Type I, II and III responses. \citet{real1977kinetics} built on Holling's work and noted the similarity between the Type responses and described each Type response as variations on the same equation (Eq. 1); thus each model is a special case of a Generalised functional response model. Population ecologists generally follow a phenomenological approach to justify functional responses \citep{jeschke2002predator}; consistent with the idea that more complex and flexible functional responses outperform traditional methods \citep{rosenbaum2018fitting}. This contradicts the foundation of functional responses and the mechanistic approach of constructing a biologically meaningful model. An increasing number of studies have attempted to explore the phenotypic traits and environmental drivers that may affect the attack exponent, but with little consensus (?). A quantitative measure of the effect of the attack exponent has been described in how a small shift from 0 to approximately 0.2 increases the stability of ecological networks \citep{williams2004stabilization} and hence increases species coexistence and biodiversity \citep{c2008food}. However, predicting functional responses would depend on having measurable parameters e.g. handling time and search rate. The Generalised model is at an advantage in terms of successfully fitting empirical data but is limited in its applicability due to its dependence on the phenomenological parameter.
+            
+        %The most commonly studied responses are the Type II and Type III responses. The Type II response has been described as the most frequently used \citep{baskett2012integrating},\citep{jeschke2002predator} and observed response (\citep{hassell1976components};\citep{begon1986ecology}); and most often successful in describing predator-prey \citep{skalski2001functional} and mutualistic inetractions \citep{holland2010consumer}. However, the Type II response is arguably not used solely because it adequately models ecological interactions, but because it is relatively parsimonious (two parameters).
+
+        My first hypothesis is: the additional parameter in the Generalised model will improve its flexibility and consequently its fit to empitical data. To address this hypothesis I will compare the fit of the Generalised model to that of three phenomenological (linear regression, Quadratic and Cubic) models and the three Type responses. My second hypothesis is: given its flexibility, the Generalised response will accommodate variation in the data and fit equally well for a variety of responses that may have otherwise been categorised (or best described) as Type I, II or III. If this occurs then the Generalised model may be masking potentially different functional responses and ultimately hampering biological interpretation of model fits. To address this hypothesis I will compare the fits of the mechanistic models against habitat type in an attempt to see whether there is a difference in model fit using the Type responses compared to using the Generalised repsonse model.
+            
+    \section{Methods} % 1000 words
+    % Explicitly state which sections are addressing which hypotheses
+        \subsection{Data}
+            The data described the density dependent consumption rate of 308 unique combinations of consumer and resource taxa (hereafter referred to as 308 IDs). IDs consisted of a variety of interactions between a variety of species (e.g. from different habitats, in employed foraging movement, dimensionality of consumer or resource detection, etc.). The explanatory variable was the resource density; calculated as the number of individuals per square meter or cubic meter (depending on resource movement dimensionality). The dependent variable was the density dependent consumption rate; measured as the biomass quantity or number of individuals of resource consumed per unit time per unit comsumer. 
+
+        \subsection{Candidate models}
+            I fitted three phenomenological models (linear regression, Quadratic and Cubic) and four mechanistic models (Holling's Type I, II and III, and the Generalised functional response) to each ID.
+
+            The 'straight line' (linear regression and Type I response) models served as useful baselines to compare each more complex phenomenological / mechanistic model (respectively).
+
+            Each of the Type responses and Generalised response can be described as variations on the same equation (Eq. 1). Where c is the consumption rate, a is the search rate, x\textsubscript{R} is the resource density, h is handling time, and n is a phenomenological exponent.
+
+            \begin{equation}
+                c = \frac{ax_{R}^n}{1 + hax_{R}^n}
+            \end{equation}
+
+            The Type I functional response describes a linear relationship. When handling time is zero (h=0, a is constant and n=1 in Equation 1), consumption rate increases in direct proportion to resource density. Holling \citep{holling1959some} supposed that the linear relationship is only sustained up to a critical resource density, at which consumption rate abruptly saturates. This abrupt saturation is commonly ignored when fitting the Type I response to data, hence, I only fitted the linear relationship.
+            
+            The Type II functional response \citep{holling1959some} describes a hyperbolic saturating curve. Consumption rate is being constrained by both the consumer's search rate (a) and handling time (h\textgreater0 and n=1 in Equation 1). The consumption rate increases at a progressively decreasing rate as resource density increases (see Fig. 1b).
+
+            The Type III functional reposnse \citep{holling1966functional} describes a sigmoid curve. \citet{real1977kinetics}'s succinct mathematical function for the Type III response (h\textgreater0 and n=2 in Equation 1) describes consumption rate increasing initially, then decreasing at higher resource density, tending towards saturation (see Fig. 1b).
+
+            The Generalised functional response (Eq. 3) is a less constrained variation on the Type II and Type III responses (n=q+1 in Equation 1). The attack exponent (q) influences the shape of the functional response from a strict Type II (q=0) to a strict Type III (q=1) response and beyond these bounds.
+
+            \begin{equation}
+                c = \frac{ax_{R}^{q+1}}{1 + hax_{R}^{q+1}}\label{eq:3}
+            \end{equation}
+
+        \subsection{Fitting}
+            Model fitting was performed for each ID.
+            
+            The linear regression, Quadratic and Cubic models were fitted using simple linear regression of consumption rate against resource density (in the form of a matrix whose columns were a basis of orthogonal polynomials; 3 and 4 columns respectively).
+
+            The Type I functional response was fitted using the same method as the linear regression, but forcing the intercept to pass through 0 (because consumption rate must be 0 when there is no resource i.e. when resource density is 0). The Type II, III and the Generalised response are non-linear models; these were fit using non-linear least squares.
+            
+            \newpage
+            \begin{landscape}
+
+            \begin{table}
+                \centering
+                    \caption{Parameter definitions and starting values necessary for the Type responses and Generalised functional response. Starting values for use in non-linear least squares calculations were sampled between ±10\% of the estimated starting values. Search rate and handling time were bounded such that they could not be less than 0. The attack exponent was bounded between 0 (a strict Type II response) and 1 (a strict Type III response).}\label{tab:sub_first}
+                \begin{tabular}{lllll}
+                \textbf{Parameter} & & \textbf{Definition} & \textbf{Comment} & \textbf{Starting value} \\
+                Search rate (a) & & Rate of successful searching for each resource.     & \begin{tabular}[c]{@{}l@{}}   Limits consumption rate when resources are scarce,\\ 
+                                                                                                                    so mainly controls the initial increase in\\
+                                                                                                                    consumption rate at low resource densities. As\\ 
+                                                                                                                    $x_R\rightarrow 0, c\rightarrow ax_R$. \end{tabular} & \begin{tabular}[c]{@{}l@{}}Slope of the line from the origin (0,0) to the \\
+                                                                                                                    consumption rate corresponding to the smallest \\
+                                                                                                                    resource density.\end{tabular}\\
+                \\
+                Handling time (h) & & Time to pursue, subdue and ingest each resource.  & \begin{tabular}[c]{@{}l@{}}   Mainly controls the consumption rate at \\
+                                                                                                                    high resource densities, where the feeding \\
+                                                                                                                    curve becomes saturated. As $x_R\rightarrow \infty$, \\
+                                                                                                                    search and detection of resource becomes \\
+                                                                                                                    instantaneous, and $c\rightarrow \frac{1}{h}$\end{tabular}. & $\frac{1}{c_{max}}$ \\ 
+                \\
+                Attack exponent (q) &  & Phenomenological attack exponent.              & \begin{tabular}[c]{@{}l@{}}   When q=0, the Generalised response conforms\\
+                                                                                                                    to a strict Type II response. When q=1 the \\
+                                                                                                                    Generalised response conforms to a strict \\
+                                                                                                                    Type III response. \end{tabular}& Randomly sampled as either 0 or 1.\\
+            
+                \end{tabular}
+                \end{table}
+
+            \end{landscape}
+
+            I calculated starting values for each parameter, from which iterations of calculating non-linear least squares converged on parameter estimates with the smallest residuals. The method implemented for deciding starting values is detailed in Table. 1) Non-linear least squares was repeated for 100 iterations using combinations of ranomly sampled starting values for each parameter. By undergoing repeated sampling I minimised the probability of converging on local optima while minimising residuals. For each repeat, corrected Akaike Information Criterion (AICc) and Bayesian Information Criterion (BIC) were calculated as measures of model fit. The best model fit was decided as the fit with the lowest AICc or BIC (where neither AICc not BIC were Inf). Plots were generated for each ID to visually compare the fit of each model (e.g. see \ref{fig:1}).
+
+            \begin{figure}[htpb]
+                \includegraphics[width=14cm]{Example_fit_ID_39894}\label{fig:1}
+                \centering
+                \caption{The density dependent consumption rate for ID 39894 (where ID is a unique combination of consumer and resource taxa; Pergamasus crassipes (Linnaeus 1758) and Onychiurus armatus (Tullberg) respectively). This ID is shown as an example of a dataset with the median number of datapoints (7) and for displaying reasonable fits for each of the three phenomenological models \textbf{a} and four mechanistic models \textbf{b}. For this ID, differences in AICc suggested that the best fitted phenomenological model was the linar regression and the best fitted mechanistic model was the Type II response. BIC suggested that the best fitted pehnomenological model was the Cubic and that there was not a consistently best fitted mechanistic model. Model fit did vary between IDs based on the number and distribution of datapoints.}
+            \end{figure}
+            
+            AICc and BIC are information based criterion that assess model fit. Both were used because of the difference in how they calculate goodness of fit, especially considering the penalty that they apply for the number of parameters in a model. AICc was used in favour of AIC due to small sample sizes of many IDs. When the sample size is small, there is a substantial probability that AIC will select models that have too many parameters i.e. AIC will overfit. A paper by Johnson I\& Omland (\citep{johnson2004model}) suggested that AICc should be used instead of AIC when the number of free parameters, p, exceeds n/40 (where n is the sample size). AICc includes a bias correction term for small sample size. As \(\text{n} \rightarrow \text{$\infty$}\) the extra penalty term converges to 0, and AICc converges to AIC \citep{burnhamandanderson2004}; therefore AICc is used as standard for all IDs, regardless of sample size. BIC contains a penalty term dependent on sample size.
+
+            A high degree of overfitting among the Quadratic and Cubic models resulted in AICc and BIC values of infinity which caused errors when trying to calculate differences. Due to this problem, further analysis was only conducted on the mechanistic models.
+
+            %(\citep{burnhamandanderson2004} for a comparison of AIC and BIC)
+
+        \subsection{Pairwise comparisons and overall winner}
+            
+            I performed pairwise comparisons between every models and calculated the percentage number of IDs that either model in a comparison was the better fit (Table. 2). I declared the better fitted model (i.e. the 'winner') as the model with the lower AICc or BIC if $\Delta$AICc\textgreater2 or $\Delta$BIC\textgreater2. If $\Delta$AICc\textless2 or $\Delta$BIC\textless2 then the result was labelled a 'draw'. This \textgreater2 criterion is used as standard for comparing model fits \citep{johnson2004model}.
+            
+        \subsection{Akaike Weights}
+            As a measure of the relative weight of evidence for each of the mechanistic models per ID, I calculated Akaike Weights. Akaike Weights were calculated based on Eq. 4; where W\textsubscript{i} is the Akaike Weight of a model, $\Delta$\textsubscript{i} is the difference between the AICc of a model and the AICc of the model among the candidate set of models with the lowest AICc, and R is the number of models in the candidate set of models.
+            
+            \begin{equation}
+                W_i = \frac{exp(-1/2 \Delta_i)}{\sum\limits_{j=i}^{R} exp(-1/2\Delta_j)}
+            \end{equation}
+
+            The mean Akaike Weights of the mechanistic models are plotted in Figure 3.
+
+        \subsection{Model success and habitats.}
+            To compare model fits between habitats, I conducted an analysis of variance (ANOVA) of AICc and BIC values of the mechanistic models against habitat (Fig. 4). The three habitat types present in the data were freshwater, marine and terrestrial. To identify which comparisons of model:habitat interactions were significant, I conducted Tukey's honest significant differences (Table. 3). ANOVA and Tukey's honest significant differences return a measure of signficance in the form of a p-value. The p-values were consisent with with the standard criterion for comparing model fits i.e. $\Delta$AICc\textgreater2 and $\Delta$BIC\textgreater2.
 
         \subsection{Computing tools}
-        State how each of the scripting languages (bash, R, python) was used
-        and what packages within them were used and a justification why.
-
-
-            Python for script building workflow - come with the subprocess package
-
-    \section{Data}
-
-    \section{Results}
+            I counducted all data preparation, model fitting, additional analysis and plotting in R. R has many useful in-built functions (e.g. functions for calculating AIC and BIC) and accessory packages (e.g. ggplot2 for generating publication quality figures, and minpack.lm which contains a function for computing non-linear least squares). Python also has many useful packages for statistical analysis and plotting, however the full run time was not sufficiently long as to cause concern, or suggest that scripts would be better written in python (where the run time may have been different). The script used compile the write-up pdf from the LaTeX script file, and the script used to run the project were were written in bash script. Bash scripting allows the automation of command line tasks. Python can be used to communicate with the command line, but it is not optimised for it.
         
-    \section{Discussion}
+    \section{Results} % 750 words
+        
+        % Summarise results in first paragraph
+        To address the relative success of each model's fit I calculated AICc and BIC. By comparing these measures of model fit between models I calculated the percentage number of IDs in which each ID had the superior fit. I also used the AICc values to calculate Akaike Weights as a measure of the relative support for each model. To address the potential differences in model fit between habitats, I compared AICc for each of the mechanistic models against habitat type.
+
+        \subsection{Pairwise comparisons}
+            To determine the relative success of each model fit, I calculated pairwise comparisons of AICc (Table.1a) and BIC (Table.1b) values. AICc suggested that the Generalised response was the best fitted model. The Generalised response outperformed the more consistently fit linear models as well as the similarly shaped Type II and Type III responses; winning in over 50\% for each pairwise comparison. BIC suggested that Holling's Type II response was the better fitted model. BIC found that the Type II response won over the Generalised response for a higher percentage number of IDs than the Generalised response won over the Type II response. However, a greater number IDs did not have a clear winner (i.e. $\Delta$BIC\textless2). The more complex models (i.e. including more parameters) had a higher percentage number of wins. This suggested that despite many IDs having a small sample size, the number of occasions when the more complex models could be fitted to the data (and did outperform the simpler models) outnumbered the occasions when they could not be fitted and so lost by default.
+            
+            \newpage
+            \begin{landscape}
+
+% latex table generated in R 3.6.3 by xtable 1.8-4 package
+% Sun Jan 10 15:02:09 2021
+\begin{table}[ht]
+    \caption{Pairwise comparisons of model fit (\textbf{a} AICc; \textbf{b} BIC) showing the percentage number of IDs in which each model was the better fit. The tables describe the percentage number of wins by the row name model when compared with the column name model. The better fitted model was defined as having a lower \textbf{a} AICc or \textbf{b} BIC and $\Delta$AIC\textgreater2 or $\Delta$BIC\textgreater2. The models are grouped by phenomenological / mechanistic and ordered by complexity.}
+    
+    \begin{subtable}{1\textwidth}
+    \sisetup{table-format=-1.2}
+    \centering
+        \caption{Based on corrected Akaike Information Criterion (AICc)}\label{tab:sub_first}
+        \begin{tabular}{|r|lllllll|}
+            \hline
+           & \multicolumn{7}{c|}{Percentage wins against:} \\ 
+            \toprule
+           & Straight Line & Quadratic & Cubic & Holling Type I & Holling Type II & Holling Type III & Generalised \\ 
+           \midrule
+           {\textbf{Straight Line}} &  & 0.328 & 4.262 & 17.705 & 27.213 & 0 & 0 \\ 
+             {\textbf{Quadratic}} & 99.016 &  & 12.459 & 27.213 & 32.787 & 8.852 & 6.557 \\ 
+             {\textbf{Cubic}} & 95.738 & 85.902 &  & 63.279 & 54.098 & 30.82 & 9.836 \\ 
+             {\textbf{Holling Type I}} & 82.295 & 72.131 & 26.885 &  & 62.623 & 35.41 & 13.443 \\ 
+             {\textbf{Holling Type II}} & 72.787 & 66.557 & 39.672 & 28.525 &  & 47.213 & 29.836 \\ 
+             {\textbf{Holling Type III}} & 100 & 89.836 & 50.164 & 58.689 & 49.508 &  & 30.492 \\ 
+             {\textbf{Generalised}} & 100 & 93.443 & 67.869 & 75.082 & 63.279 & 55.082 &  \\ 
+              \bottomrule
+          \end{tabular}
+       
+    \end{subtable}
+    
+    \bigskip
+    \begin{subtable}{1\textwidth}
+    \sisetup{table-format=4.0}
+    \centering
+    \caption{Based on Bayesian Information Criterion (BIC)}\label{tab:sub_second}   
+    \begin{tabular}{|r|lllllll|}
+        \hline
+        & \multicolumn{7}{c|}{Percentage wins against:} \\ 
+        \toprule
+       & Straight Line & Quadratic & Cubic & Holling Type I & Holling Type II & Holling Type III & Generalised \\ 
+       \midrule
+       {\textbf{Straight Line}} &  & 0.328 & 0 & 0 & 0 & 0 & 0 \\ 
+         {\textbf{Quadratic}} & 99.016 &  & 4.59 & 4.262 & 4.59 & 6.885 & 4.262 \\ 
+         {\textbf{Cubic}} & 100 & 93.77 &  & 5.574 & 11.475 & 66.885 & 9.836 \\ 
+         {\textbf{Holling Type I}} & 100 & 95.082 & 59.672 &  & 15.738 & 82.295 & 26.885 \\ 
+         {\textbf{Holling Type II}} & 100 & 95.41 & 69.836 & 40.656 &  & 85.574 & 42.951 \\ 
+         {\textbf{Holling Type III}} & 100 & 91.803 & 2.951 & 4.918 & 8.197 &  & 5.574 \\ 
+         {\textbf{Generalised}} & 100 & 95.738 & 67.541 & 36.393 & 30.164 & 79.672 &  \\ 
+          \bottomrule
+      \end{tabular}
+       
+    \end{subtable}
+    
+    \end{table}
+
+\end{landscape}
+            
+        \subsection{Akaike weights}            
+            To calculate the relative support for each of the candidate models I calculated Akaike Weight (AW) for each ID. The distributions of Akaike weights (Supplementary Fig. 1) showed that models were either the (or very close to being the) best model for the observed data among the candidate set of models, or far from the best. The Generalised response had the largest ratio of Akaike Weights close to 1 (i.e. the best model among the candidate set) relative to the values close to 0. The next highest ratio was the Type I followed by Type III, then II. The mean Akaike Weights (Fig. 2) again suggested that the Generlised response was the best model for the most IDs (with a mean AW of 0.5) among the candidate set of models.
+
+            \begin{figure}[htpb]
+                \includegraphics[width=11cm]{Akaike_weights}\label{fig:3}
+                \centering
+                \caption{Mean Akaike Weights for the candidate set of mechanistic models (Type I, II, III and Generalised functional response). Akaike Weights were calculated per ID and normalised across the candidate set of models to sum to 1. Akaike weights are interpreted as the probability that a model is the best model for the observed data given the candidate set of models. An Akaike Weight of 1 suggests unambigious support by the data.}
+            \end{figure}
+
+            The Type I, II, III and Generalised responses had the lowest AICc values for 69, 80, 66 and 92 IDs respectively. If the Generalised response is removed from the candidate set of models, the mean Akaike weights for Type I, II and III responses increase from 0.31, 0.07 and 0.12 to 0.52, 0.19 and 0.29 (and the number of occasions having the lowest AICc increase to 100, 115 and 92) respectively. Based on the model with the lowest ID, the Type II response had was second only to the Generalised response and saw the highest increase in number of IDs won when the Generalised response model was omitted (35 more IDs). This is not consistent with the AWs, and so may suggest that the Type II model had many IDs in which is was very poorly fitted, whereas the Type I response had a very consistent fit, although uncommonly a very accurate fit to the data.
+
+        \subsection{Habitat comparisons}
+            To compare the model fit's between habitat types I conducted an ANOVA and Tukey's Honest Significance test AICc values were significantly different between habitat types (Table.2). Most model fits were highly significantly different (p\textless0.01) between Terrestrial and Freshwater habitat. Neither AICc nor BIC showed significant differences between Type I Terrestrial and Generalised Freshwater and BIC showed  no signficiant difference between Type III Terrestrial and Generalised Freshwater). No comparisons of model fit were significantly different between Terrestrial and Marine or Freshwater and Marine habitat. Removing potentially extreme outliers e.g. the highest values for Freshwater and lowest value for Marine, did not have a large effect on the mean or the significance of model:habitat comparisons, therefore these outliers were not removed for the analysis. The potential outliers for terrestrial appeared to be imposing a strong bias on the mean of each model towards a more negative AICc and BIC, however, due to there being a large number of these outliers, they were not removed.
+
+% latex table generated in R 3.6.3 by xtable 1.8-4 package
+% Mon Jan 18 20:43:28 2021
+\begin{table}[ht]
+    \caption{Comparisons of model fit between different habitats based on \textbf{a} AICc and \textbf{b} BIC. Habitats are abbreviated: Freshwater (F), Marine (M), Terrestrial (T). Only the signficiant (p\textless0.05) estimated differences are displayed, with lower and upper confidence intervals (CIs).} \label{tab:three_tables}
+    
+    \begin{subtable}{1\textwidth}
+    \sisetup{table-format=-1.2}
+    \centering
+        \caption{Based on corrected Akaike Information Criterion (AICc)}\label{tab:sub_first}
+\begin{tabular}{llrrrr}
+    \toprule
+   {\textbf{Term}} & {\textbf{Comparison}} & {\textbf{Estimate}} & {\textbf{Lower CI}} & {\textbf{Upper CI}} & {\textbf{p}} \\ 
+    \midrule
+    Habitat & M-F & -59.78 & -105.87 & -13.69 & 0.01 \\ 
+    Habitat & T-F & -141.93 & -186.03 & -97.82 & 0.00 \\ 
+    Habitat & T-M & -82.15 & -136.53 & -27.76 & 0.00 \\
+    \\
+    Model:Habitat & TypeI:T-TypeI:F & -135.10 & -258.19 & -12.02 & 0.02 \\ 
+    Model:Habitat & TypeII:T-TypeI:F & -164.63 & -287.72 & -41.55 & 0.00 \\ 
+    Model:Habitat & TypeIII:T-TypeI:F & -145.69 & -268.78 & -22.61 & 0.01 \\ 
+    Model:Habitat & Generalised:T-TypeI:F & -161.00 & -284.08 & -37.92 & 0.00 \\
+    \\ 
+    Model:Habitat & TypeI:T-TypeII:F & -128.50 & -251.59 & -5.42 & 0.03 \\ 
+    Model:Habitat & TypeII:T-TypeII:F & -158.03 & -281.12 & -34.95 & 0.00 \\ 
+    Model:Habitat & TypeIII:T-TypeII:F & -139.09 & -262.18 & -16.01 & 0.01 \\ 
+    Model:Habitat & Generalised:T-TypeII:F & -154.40 & -277.48 & -31.32 & 0.00 \\ 
+    \\
+    Model:Habitat & TypeI:T-TypeIII:F & -130.31 & -253.40 & -7.23 & 0.03 \\ 
+    Model:Habitat & TypeII:T-TypeIII:F & -159.84 & -282.93 & -36.76 & 0.00 \\ 
+    Model:Habitat & TypeIII:T-TypeIII:F & -140.90 & -263.99 & -17.82 & 0.01 \\ 
+    Model:Habitat & Generalised:T-TypeIII:F & -156.21 & -279.29 & -33.13 & 0.00 \\
+    \\
+    Model:Habitat & TypeII:T-Generalised:F & -137.29 & -260.38 & -14.21 & 0.01 \\
+    Model:Habitat & Generalised:T-Generalised:F & -133.66 & -256.74 & -10.57 & 0.02 \\ 
+     \bottomrule
+  \end{tabular}
+\end{subtable}
+
+\begin{subtable}{1\textwidth}
+    \sisetup{table-format=-1.2}
+    \centering
+        \caption{Based on corrected Bayesian Information Criterion (BIC)}\label{tab:sub_first}
+\begin{tabular}{llrrrr}
+    \toprule
+   {\textbf{Term}} & {\textbf{Comparison}} & {\textbf{Estimate}} & {\textbf{Lower CI}} & {\textbf{Upper CI}} & {\textbf{p}} \\ 
+    \midrule
+  Habitat & M-F & -56.53 & -101.94 & -11.11 & 0.01 \\ 
+  Habitat & T-F & -139.78 & -183.23 & -96.33 & 0.00 \\ 
+  Habitat & T-M & -83.25 & -136.84 & -29.67 & 0.00 \\ 
+  \\
+  Model:Habitat & TypeI:T-TypeI:F & -135.05 & -256.32 & -13.78 & 0.01 \\ 
+  Model:Habitat & TypeII:T-TypeI:F & -169.95 & -291.22 & -48.68 & 0.00 \\ 
+  Model:Habitat & TypeIII:T-TypeI:F & -151.46 & -272.73 & -30.19 & 0.00 \\ 
+  Model:Habitat & Generalised:T-TypeI:F & -166.39 & -287.66 & -45.12 & 0.00 \\ 
+  \\
+  Model:Habitat & TypeI:T-TypeII:F & -122.38 & -243.66 & -1.11 & 0.05 \\ 
+  Model:Habitat & TypeII:T-TypeII:F & -157.28 & -278.55 & -36.01 & 0.00 \\ 
+  Model:Habitat & TypeIII:T-TypeII:F & -138.79 & -260.07 & -17.52 & 0.01 \\ 
+  Model:Habitat & Generalised:T-TypeII:F & -153.72 & -274.99 & -32.45 & 0.00 \\ 
+  \\
+  Model:Habitat & TypeI:T-TypeIII:F & -124.05 & -245.32 & -2.78 & 0.04 \\ 
+  Model:Habitat & TypeII:T-TypeIII:F & -158.95 & -280.22 & -37.68 & 0.00 \\ 
+  Model:Habitat & TypeIII:T-TypeIII:F & -140.46 & -261.73 & -19.19 & 0.01 \\ 
+  Model:Habitat & Generalised:T-TypeIII:F & -155.39 & -276.66 & -34.11 & 0.00 \\ 
+  \\
+  Model:Habitat & TypeII:T-Generalised:F & -129.89 & -251.16 & -8.62 & 0.02 \\ 
+  Model:Habitat & Generalised:T-Generalised:F & -126.33 & -247.60 & -5.05 & 0.03 \\ 
+     \bottomrule
+  \end{tabular}
+\end{subtable}
+
+\end{table}
+
+            \begin{figure}[htpb]
+                \includegraphics[width=14cm]{Model_fits_per_habitat}\label{Habitat}
+                \centering
+                \caption{Goodness of fit statistics (\textbf{a} AICc and \textbf{b} BIC) for each of the mechanistic models and the three habitats (Freshwater, Marine and Terrestrial). Red dots indicate mean values. Potential outliers appear to have had an effect on the position of the mean, especially for Terrestrial habitat. Due to the number of outliers relative to the number of datapoints (n=175 for Freshwater, n=62 for Marine, n=70 for Terrestrial). Removing the potential outliers from Freshwater and Marine did not have an effect on the position of the mean or the significance of the comparisons between model:habitat.}
+            \end{figure}
+
+    \section{Discussion} % 850
+        % DON'T SPECULATE - can a little bit but be careful
+        % Don't just compare with previous papers
+        % Focus on implications of results:
+            % Will they change the way we approach a question?
+            % Will they change the way we manage or preserve a species or a region?
+            % Do they corroborate previous results about how important a question/area/species is?
+        % Implications for management and conservation come later in the discussion
+        % Final paragraph repeat some of the main result and main findings and put in more forward thinking - applications or future work
+            \subsection{Summary}
+            % Most interesting results and main implications
+            % Lay out the structure of the discussion e.g. We found X and these results are important for three main reasons - following paragraphs talk about a, b and c in the same order
+            \subsection{Model fits}
+                
+                I predict that the majority of models will have a relationship similar to that described by the Type II, Type III and Generalised models, whereby consumption rate saturates at high resource density (WHY?). Therefore, I expect that the mechanistic models will return a better fit than the phenomenological models. I predict that the Generalized model will outperform the Type (I, II and III) models, due to its higher flexibility. Finally, I expect that models with a greater number of parameters (e.g. Quadratic and Cubic, with 3 and 4 parameters respectively) will have closer fits to the data, however, model selection will favour more parsimonious models over these more parameter heavy models when sample sizes are small \citep{johnson2004model}.
+            
+                Non-linear models display more instances of poor fitting. This effect may be due to the more restricting shape of the Type II, Type III and Generalised responses, however, further refinement of the non-linear least squares method would be necessary to ensure better representation of the non-linear models and allow for a more fair visual comparison.
+
+                While the Generalised model is among the candidate set, the Type II and Type III prove to be the better fit for fewer IDs. The Type I response has the advantage of taking on a different shape than the other mechanistic models, making it such than when the data is linearly distributed, the Type I response is an ideal fit. However, when the data follows a hyperbolic or sigmoidal curve, the Type I response is among the worst fit, so the Generalised succeeds where the Type I response fails and visa versa.
+        
+                The search rate is limited by the handling time because consumers cannot process food and seek prey at the same time.
+                The assumption of the models that attack rate and handling time do not change - do some of groups e.g. habitats break these assumptions more than others?
+                The equation assumes that both a and h are constant at all prey densities, however, the equation can hold when a varies with resource abundance \citep{holling1959some}. Predator density is also assumed to be constant for all prey densities.
+
+                A more mechanitsic way of obtaining starting values would be to employ model averaging to determine paramter estimates for each ID. This method would be limited to the mechanistic models and may be improved by fitting additional models that use the same parameters (search rate and handling time). This method would be particulary helpful in the case of the Generalised response, where the displayed fit deviates more frequently from the data. If the parameters were bounded to within e.g. a 10\% confidence of these averaged parameter estimates, I would expect fewer cases of the Generalised model deviating from the expected fit.
+
+                Visual inspection of the plots
+                The Type I response displayed a worse fit when the data conformed to the shape of a saturating curve (as in e.g. Fig.1), however, the model described the data very well when the data did not plateau. The number and distribution of datapoints displayed a strong effect on the fit of the more complex mechanistic and pehnomenological models.
+            
+            \subsection{Pairwise comparisons and Akaike Weights}
+
+                Potential hypotheses: Type II and Type III have similar support in the data and a simialr number of IDs displaying strong Type II and Type III responses exist.
+
+                The similar number of overall wins for Type II and Type III may be explained by there being a similar number of IDs displaying strong Type II or Type III responses, however further analysis would need to be conducted to check this.
+            
+            \subsection{Models and habitats}
+
+                The Holling Type II functional response is a basic type from which more complex models can be derived by e.g. considering identification time. Associated with generality, realism and precision \citep{levins1966strategy} and how precision is required more closely predict specific situations. Other time consuming behaviours include resting. As resource abundance increases we anticipate predator satiation and more resting behaviour. A true explanation must await further experiments which independently measure the effects of separate columns. Consider use of the average mass of the resource and whether this is captured in handling time (t\textsubscript{h} = handling time / resource mass; \citep{pawar2012dimensionality}).\\
+
+                None of the described models account for background mortality or growth of the prey \citep{rosenbaum2018fitting}. We assume that this problem is not too pronounced. This problem would lead to biased parameter estimates. However, we are not concerned with the estimating parameters beyond fitting the models to the data. This is therefore not a major concern.
+
+                Dimensionality of consumer search space is probably a major driver of species co-existence and stability and abundance of populations \citep{pawar2012dimensionality}.
+
+                Functional response is dependent on the structure of the environment \citep{hohberg2005predator}.
+            
+            \subsection{Implications}
+            
+                Comparisons between phenomenological models has little meaning - may be able to offer some parameters to be applied within otherwise mechanistic models but otherwise pretty useless / biologically meaningless.\\
+                Mechanistic approaches improve the applicability of model theory to real world practices and thus help to formulate reliable methods to create realistic predictions of empirical communities. 
+
+                Process of generating an applicable model - General models have 3 kinds of imprecision \citep{levins1966strategy}:
+                \begin{enumerate}
+                    \item omit factors that have small effects or large effects in rare cases
+                    \item they are vague about the exact form of mathematical functions in order to stress qualitative properties
+                    \item the many-to-one property of sufficient parameters destroys information about lower level events
+                \end{enumerate}
+
+                The validation of a model is not that it is true, but that it generates good, testable hypotheses relevant to important problems – satisfactory theory is usually a cluster of models. Should include hypotheses here based on the relative fits of the 3 models.
+
+                If we were to only fit the Generalised functional response, we would not have noted the significant difference in model fit success between different habitats.
+
+                Model selection serves as a preferred alternative to null hypothesis testing because it allows the evaluation of more than one model at a time \citep{johnson2004model}.
+                In model selection, we want to maximise generality, realism and precision \citep{levins1966strategy}, however, it is difficult to attain all three. Approaches commonly sacrifice one of generality, realism or precision to be able to maximise the others. Precision has become a popular sacrifice \citep{levins1966strategy}, resulting in the preferred use of mechanistic models. To maximise precision, phenomenological models utilise purely mathematical parameters that lack biological meaning. Comparing mechanistic models allows the comparison of biologically meaningful parameters and directs the analysis towards more interpretable conclusions. Generality, however preferred in model selection, is not sufficient for understanding nature. Holling's categories serve as a reminder of the utility of mechanistic approaches in ecology. 
+
+                Prey switching has been confirmed in lab experiments e.g. \citep{akre1979switching}\citep{oaten1975functional}\citep{elliott2004prey}.
+            
+            \subsection{Further work}
+            
+                Compare more fits between for more variables and traits of functional responses.
+        
+        % For ideas on other models see \citep{levins1966strategy}
+    
+    \bibliographystyle{plain}
+    \bibliography{Biblio.bib}
         
 \end{document}
-
-% Questions
-% Comfirm what is meant by the first bullet point under Marking Criteria/ Report

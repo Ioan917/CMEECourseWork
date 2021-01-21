@@ -1,10 +1,8 @@
 #!/bin/bash
 # Auhor: Ioan ie917@ic.ac.uk
 # Script: tabtocsv.sh
-# Description: substitute the tabs in the files with commas
-#
-# Saves the output into a .csv file
-# Arguments: 1 -> tab delimited file
+# Description: Substitute tabs with commas and save as a .csv file.
+# Arguments: One tab delimited file e.g. bash tabtocsv.sh <file.txt>
 # Date: Oct 2020
 
 BASE="${1%.*}"
@@ -27,3 +25,5 @@ then
 else # if anything else goes wrong
     echo "hit the books, something else went wrong"
 fi
+
+exit

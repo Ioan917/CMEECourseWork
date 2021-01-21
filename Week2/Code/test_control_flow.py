@@ -2,8 +2,11 @@
 
 """Some functions exemplifying the use of control statements"""
 
-__author__ = 'Ioan Evans (ie917@ic.ac.uk)'
+__appname__ = 'test_control_flow.py'
+__author__ = 'Ioan Evans'
+__email__ = 'ie917@ic.ac.uk'
 __version__ = '0.0.1'
+__license__ = "License for this code/program"
 
 import sys
 import doctest # import the doctest module

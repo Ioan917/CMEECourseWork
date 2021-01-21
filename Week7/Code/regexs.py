@@ -2,6 +2,13 @@
 
 """Examples of the use of regular expressions."""
 
+__appname__ = 'regexes.py'
+__author__ = 'Ioan Evans'
+__email__ = 'ie917@ic.ac.uk'
+__version__ = '0.0.1'
+__license__ = "License for this code/program"
+
+## Packages
 import re
 
 my_string = "a given string"

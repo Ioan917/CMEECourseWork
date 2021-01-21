@@ -2,6 +2,12 @@
 
 """Exploring use of for and while loops in python."""
 
+__appname__ = 'loops.py'
+__author__ = 'Ioan Evans'
+__email__ = 'ie917@ic.ac.uk'
+__version__ = '0.0.1'
+__license__ = "License for this code/program"
+
 # FOR loops in python
 for i in range(5):
     print(i)

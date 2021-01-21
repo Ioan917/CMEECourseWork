@@ -2,6 +2,12 @@
 
 """Example of importing data into python"""
 
+__appname__ = 'basic_io.py'
+__author__ = 'Ioan Evans'
+__email__ = 'ie917@ic.ac.uk'
+__version__ = '0.0.1'
+__license__ = "License for this code/program"
+
 ## File input
 
 # Open a file for reading

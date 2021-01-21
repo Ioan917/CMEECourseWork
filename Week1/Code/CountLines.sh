@@ -1,4 +1,9 @@
 #!/bin/bash
+# Author: Ioan ie917@ic.ac.uk
+# Script: CountLines.sh
+# Desc: Count number of lines in a file.
+# Arguments: One file e.g. bash CountLines.sh <file.txt>
+# Date Oct 2020
 
 if [[ "$#" = 1 ]] # if only one file selected
 then
@@ -15,3 +20,5 @@ then
 else # some other error, not specified above
     echo "oh no! something else went wrong"
 fi
+
+exit

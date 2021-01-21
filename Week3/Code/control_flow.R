@@ -1,6 +1,16 @@
-#!/usr/bin/env R
+#!/usr/bin/env Rscript --vanilla
 
-### if statements ###
+# Title: control_flow.R
+# Author details: Ioan Evans, Contact details: ie917@ic.ac.uk
+# Date: Nov 2020
+# Script and data info: Example control flow scripts.
+# Copyright statement: none
+
+## Housekeeping
+rm(list = ls())
+graphics.off()
+
+################################ if statements #################################
 
 a <- TRUE
 if (a == TRUE){
@@ -16,7 +26,7 @@ if (z <= 0.5) {
         print ("More than a half")
     }
 
-### for loops ###
+################################## for loops ###################################
 
 for (i in seq(10)) {
     j <- i * i
@@ -38,7 +48,7 @@ for (i in v1) {
     print(i)
 }
 
-### while loops ###
+################################# while loops ##################################
 
 i <- 0
 while (i < 10) {

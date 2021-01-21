@@ -3,8 +3,9 @@
 """Python program that finds the best alignment of two DNA sequences 
 and prints the best score and alignment to a txt file"""
 
-__appname__ = '[application name here]'
-__author__ = 'Ioan Evans (ie917@ic.ac.uk)'
+__appname__ = 'align_seqs.py'
+__author__ = 'Ioan Evans'
+__email__ = 'ie917@ic.ac.uk'
 __version__ = '0.0.1'
 __license__ = "License for this code/program"
 

@@ -1,0 +1,51 @@
+\documentclass[11pt]{article}
+
+% Line spacing
+\usepackage{setspace}
+\onehalfspacing
+
+% Sectioning format
+\usepackage{titlesec}
+
+% Insert figures
+\usepackage{graphicx}
+\graphicspath{ {../Results/} }
+
+% Producing high quality tables
+\usepackage{subcaption,siunitx,booktabs}
+
+% Change page orientation
+\usepackage{lscape}
+
+% Adjust margin width
+\usepackage{geometry}
+\geometry{legalpaper, portrait, margin=1.5in}
+
+% Supplementary information
+\newcommand{\beginsupplement}{%
+        \setcounter{table}{0}
+        \renewcommand{\thetable}{S\arabic{table}}%
+        \setcounter{figure}{0}
+        \renewcommand{\thefigure}{S\arabic{figure}}%
+     }
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+    \section{Supplementary Material}
+    \beginsupplement
+
+        \begin{figure}[htpb]
+            \includegraphics[width=14cm]{AW_frequency}\label{fig:4}
+            \centering
+            \caption{The frequency of Akaike Weights (which have been calculated for each ID) for each of the mechanistic models: \textbf{a} Holling's Type I, \textbf{b} Type II, \textbf{c} Type III and \textbf{d} Generalised functional response. Akaike Weights were normalised across the candidate set of models to sum to 1. Akaike Weights describe the probability that a model is the best model given the candidate set of models (the mechanistic models). An Akaike Weight of 1 suggests unambigous support for the model by the data.}
+        \end{figure}
+
+        \begin{figure}[htpb]
+            \includegraphics[width=10cm]{Overall_winner_mechanistics}\label{fig:2}
+            \centering
+            \caption{The percentage number of IDs where each mechanistic model was the best fitted model among the candidate of models (Type I, II, III and Generalised functional response models); based on \textbf{a} AICc and \textbf{b} BIC. The best fitted model was defined as: if a model had the lower \textbf{a} AICc or \textbf{b} BIC value and $\Delta$AIC\textgreater2 or $\Delta$BIC\textgreater2 for all pairwise comparisons. IDs which did not have a consistent winner (i.e. had models that won some comparisons but not all) were labelled draws.} 
+        \end{figure}
+
+\end{document}

@@ -1,25 +1,36 @@
-#!/usr/bin/env R
+#!/usr/bin/env Rscript --vanilla
 
-################################################################
-################## Wrangling the Pound Hill Dataset ############
-################################################################
+# Title: DataWrangTidy.R
+# Author details: Ioan Evans, Contact details: ie917@ic.ac.uk
+# Date: Nov 2020
+# Script and data info: Example code wrangling the PundHill dataset with tidyverse.
+# Copyright statement: none
 
-library(tidyverse)
+## Housekeeping
+rm(list = ls())
+graphics.off()
 
-############# Load the dataset ###############
+## Load packages
+require(tidyverse)
+
+################################################################################
+####################### Wrangling the Pound Hill Dataset #######################
+################################################################################
+
+############################### Load the dataset ###############################
 # header = false because the raw data don't have real headers
 MyData <- read_csv("../Data/PoundHillData.csv", col_names = FALSE)
 
 # header = true because we do have metadata headers
 MyMetaData <- read_csv2("../Data/PoundHillMetaData.csv", col_names = TRUE)
 
-############# Inspect the dataset ###############
+############################# Inspect the dataset ##############################
 dplyr::slice(MyData, 1:5)
 dplyr::glimpse(MyData)
 utils::View(MyData)
 utils::View(MyMetaData)
 
-############# Transpose ###############
+################################## Transpose ###################################
 # To get those species into columns and treatments into rows 
 MyData <- MyData %>%
   tibble::rownames_to_column() %>%  
@@ -28,11 +39,10 @@ MyData <- MyData %>%
 
 dplyr::slice(MyData, 1:5)
 
-############# Replace species absences with zeros ###############
+###################### Replace species absences with zeros #####################
 MyData <- MyData %>% replace(is.na(.), 0)
 
-############# Convert raw matrix to data frame ###############
-
+####################### Convert raw matrix to data frame #######################
 # Remove first column
 MyData <- MyData[, -1]
 
@@ -41,8 +51,7 @@ names(MyData) <- as.matrix(MyData[1, ])
 MyData <- MyData[-1, ]
 MyData[] <- lapply(MyData, function(x) type.convert(as.character(x)))
 
-############# Convert from wide to long format  ###############
-
+###################### Convert from wide to long format  #######################
 # use gather() from tidyr
 
 MyWrangledData <- gather(MyData, key = "Species", value = "Count", factor_key = FALSE, -Cultivation, -Block, -Plot, -Quadrat)
@@ -54,6 +63,6 @@ MyWrangledData[, "Quadrat"] <- as_factor(MyWrangledData[, "Quadrat"])
 
 dplyr::slice(MyWrangledData, 1:5)
 
-print("Script done!")
+################ Exploring the data (extend the script below)  #################
 
-############# Exploring the data (extend the script below)  ###############
+print("Script done!")

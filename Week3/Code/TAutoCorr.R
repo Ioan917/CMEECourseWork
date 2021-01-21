@@ -1,7 +1,16 @@
-#!/usr/bin/env R
+#!/usr/bin/env Rscript --vanilla
+
+# Title: TAutoCorr.R
+# Author details: Ioan Evans, Contact details: ie917@ic.ac.uk
+# Date: Nov 2020
+# Script and data info: Correlation of temperatures over successive years.
+# Copyright statement: none
+
+## Housekeeping
+rm(list = ls())
+graphics.off()
 
 ## Load data
-
 data <- load("../Data/KeyWestAnnualMeanTemperature.RData")
 
 ## Examine data
@@ -13,8 +22,6 @@ data <- load("../Data/KeyWestAnnualMeanTemperature.RData")
 #     cex.lab = 1.4)
 
 ## Compute the correlation coefficient between successive years and store it
-## cor()
-
 corr_1 <- cor(ats$Temp[-100], ats$Temp[-1]) #  0.3261697
 
 #plot(ats$Temp[-100], ats$Temp[-1],
@@ -30,7 +37,6 @@ corr_1 <- cor(ats$Temp[-100], ats$Temp[-1]) #  0.3261697
 # then recalculating the correlation coefficient for each randomly permuted year 
 # sequence and storing it
 # use sample function
-
 corr_dist <- replicate(10000, {
   permute <- sample(ats$Temp)
   corr <- cor(permute[-100], permute[-1])
@@ -44,7 +50,6 @@ corr_dist <- replicate(10000, {
 
 # Calculate what fraction of the correlation coefficients from the previous step 
 # were greater than that from step 1 - appropriate p-value
-
 pvalue <- sum(corr_dist > corr_1) / length(corr_dist)
 
 print(paste("t and t-1 have a correlation of ", as.character(signif(corr_1, digits = 3)), 

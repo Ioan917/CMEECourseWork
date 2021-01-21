@@ -2,6 +2,12 @@
 
 """Functions using non-vectorized methods, used to compare timing between non-vectorized and vectorized scripts."""
 
+__appname__ = 'profileme.py'
+__author__ = 'Ioan Evans'
+__email__ = 'ie917@ic.ac.uk'
+__version__ = '0.0.1'
+__license__ = "License for this code/program"
+
 def my_squares(iters):
     "Square the iters."
     out = []

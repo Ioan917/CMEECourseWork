@@ -2,6 +2,12 @@
 
 """Example of storing objects in python"""
 
+__appname__ = 'basic_io3.py'
+__author__ = 'Ioan Evans'
+__email__ = 'ie917@ic.ac.uk'
+__version__ = '0.0.1'
+__license__ = "License for this code/program"
+
 ## Storing objects
 
 # To save an object (even complex) for later use

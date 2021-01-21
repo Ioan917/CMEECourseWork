@@ -1,12 +1,21 @@
-#!/usr/bin/env R
+#!/usr/bin/env Rscript --vanilla
+
+# Title: PP_Dist.R
+# Author details: Ioan Evans, Contact details: ie917@ic.ac.uk
+# Date: Nov 2020
+# Script and data info: Exercise plotting density plots and writing data descriptors to a csv.
+# Copyright statement: none
+
+## Housekeeping
+rm(list = ls())
+graphics.off()
 
 ## Load data
-
 MyDF <- read.csv("../Data/EcolArchives-E089-51-D1.csv")
 
 ## Preparing the data
 
-# Making log Predator, Prey and Size ratio interactions
+## Making log Predator, Prey and Size ratio interactions
 
 MyDF$log.Predator.Mass <- log(MyDF$Predator.mass)
 MyDF$log.Prey.Mass <- log(MyDF$Prey.mass)
@@ -76,7 +85,7 @@ for(i in x) {
 graphics.off()
 
 ## Calculate log mean and median predator mass, prey mass and predator-prey 
-# size-ratios to a csv
+## size-ratios to a csv
 
 Mean.predator <- as.vector(tapply(MyDF$log.Predator.Mass, 
                                   MyDF$Type.of.feeding.interaction, mean))

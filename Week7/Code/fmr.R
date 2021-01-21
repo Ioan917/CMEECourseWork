@@ -1,4 +1,14 @@
-#!/usr/bin/env python3
+#!/usr/bin/Rscript --vanilla
+
+# Title: fmr.R
+# Author details: Author: Ioan Evans, Contact details: ie917@ic.ac.uk
+# Date: Nov 2020
+# Script and data info: Find and plot linear regressions.
+# Copyright statement: none
+
+## Housekeeping
+rm(list = ls())
+graphics.off()
 
 # Plots log(field metabolic rate) against log(body mass) for the Nagy et al 
 # 1999 dataset to a file fmr.pdf.

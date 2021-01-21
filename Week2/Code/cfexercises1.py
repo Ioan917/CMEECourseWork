@@ -2,8 +2,11 @@
 
 """Exploring use of control statements and module like structure."""
 
-__author__ = 'Ioan Evans (ie917@ic.ac.uk)'
+__appname__ = 'cfexercises1.py'
+__author__ = 'Ioan Evans'
+__email__ = 'ie917@ic.ac.uk'
 __version__ = '0.0.1'
+__license__ = "License for this code/program"
 
 import sys
 

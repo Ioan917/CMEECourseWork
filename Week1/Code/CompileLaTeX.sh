@@ -1,4 +1,11 @@
 #!/bin/bash
+# Author: Ioan ie917@ic.ac.uk
+# Script: CompileLaTeX.sh
+# Desc: Compile LaTeX script into pdf file.
+# Arguments: LaTeX (.tex) script e.g. bash CompileLaTeX.sh <file.tex>
+# Date Oct 2020
+
+#!/bin/bash
 BASE="${1%.*}"
 pdflatex $BASE.tex
 bibtex $BASE
@@ -17,3 +24,5 @@ evince $BASE.pdf &
 #rm *.toc
 
 rm -f {*~,*.aux,*.bbl,*.blg,*.dvi,*.log,*.nav,*.out,*.snm,*.toc}
+
+exit

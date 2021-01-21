@@ -2,6 +2,12 @@
 
 """Some functions used to test %pdb for debugging."""
 
+__appname__ = 'debugme.py'
+__author__ = 'Ioan Evans'
+__email__ = 'ie917@ic.ac.uk'
+__version__ = '0.0.1'
+__license__ = "License for this code/program"
+
 def buggyfunc(x):
     """Buggy function"""
     y = x

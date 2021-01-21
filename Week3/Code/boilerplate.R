@@ -1,6 +1,16 @@
-#!/usr/bin/env R
+#!/usr/bin/env Rscript --vanilla
 
-# A boilerplate script
+# Title: boilerplate.R
+# Author details: Ioan Evans, Contact details: ie917@ic.ac.uk
+# Date: Nov 2020
+# Script and data info: A boilerplate script.
+# Copyright statement: none
+
+## Housekeeping
+rm(list = ls())
+graphics.off()
+
+## Script
 
 MyFunction <- function(Arg1, Arg2) {
 

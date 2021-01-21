@@ -2,6 +2,12 @@
 
 """Exercise to compare the use of conventional loops and list comprehensions."""
 
+__appname__ = 'oaks.py'
+__author__ = 'Ioan Evans'
+__email__ = 'ie917@ic.ac.uk'
+__version__ = '0.0.1'
+__license__ = "License for this code/program"
+
 ## Finds just those taxa that are oak trees from a list of species
 
 taxa = [    'Quercus robur',

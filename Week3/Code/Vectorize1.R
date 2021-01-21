@@ -1,5 +1,16 @@
-#!/usr/bin/env R
+#!/usr/bin/env Rscript --vanilla
 
+# Title: Vectorize1.R
+# Author details: Ioan Evans, Contact details: ie917@ic.ac.uk
+# Date: Nov 2020
+# Script and data info: Example illustrating the differences in speed of loops and the use of vectorization.
+# Copyright statement: none
+
+## Housekeeping
+rm(list = ls())
+graphics.off()
+
+## Loop function
 M <- matrix( runif(1000000), 1000, 1000)
 
 SumAllElements <- function(M) {

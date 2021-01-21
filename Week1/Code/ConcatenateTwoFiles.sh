@@ -1,4 +1,9 @@
-#!bin/bash
+#!/bin/bash
+# Author: Ioan ie917@ic.ac.uk
+# Script: ConcatenateTwoFiles.sh
+# Desc: Concatenate two files.
+# Arguments: Two text files as inputs and one text file as output e.g. bash ConcatenateTwoFiles.sh <input1.txt> <input2.txt> <output.txt>
+# Date: Oct 2020
 
 if [[ "$#" = 3 ]] # if a perfect 3 files selected
 then
@@ -15,3 +20,5 @@ then
 else # some other error, not specified above
     echo "something else went wrong"
 fi
+
+exit

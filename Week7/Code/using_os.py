@@ -2,6 +2,13 @@
 
 """Use subprocess.os.walk to find and list directories, subdirectories and files."""
 
+__appname__ = 'using_os.py'
+__author__ = 'Ioan Evans'
+__email__ = 'ie917@ic.ac.uk'
+__version__ = '0.0.1'
+__license__ = "License for this code/program"
+
+## Packages
 import subprocess
 
 # Use the subprocess.os module to get a list of files and directories 
@@ -10,7 +17,7 @@ import subprocess
 # Hint: look in subprocess.os and/or subprocess.os.path and/or 
 # subprocess.os.walk for helpful functions
 
-home = subprocess.os.path.expanduser("~")
+home = subprocess.os.path.expanduser("../../")
 p = subprocess.os.walk(home, topdown=True, onerror=None, followlinks=False)
 list(p)
 

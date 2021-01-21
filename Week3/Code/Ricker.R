@@ -1,5 +1,16 @@
-#!/usr/bin/env R
+#!/usr/bin/env Rscript --vanilla
 
+# Title: Ricker.R
+# Author details: Ioan Evans, Contact details: ie917@ic.ac.uk
+# Date: Nov 2020
+# Script and data info: Discrete population model.
+# Copyright statement: none
+
+## Housekeeping
+rm(list = ls())
+graphics.off()
+
+## Ricker model
 Ricker <- function( N0=1, 
                     r=1, # intrinsic growth rate
                     K=10, # carrying capacity

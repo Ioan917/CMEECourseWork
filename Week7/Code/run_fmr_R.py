@@ -2,6 +2,13 @@
 
 """Example using subprocess to run an R script from python."""
 
+__appname__ = 'run_fmr_R.py'
+__author__ = 'Ioan Evans'
+__email__ = 'ie917@ic.ac.uk'
+__version__ = '0.0.1'
+__license__ = "License for this code/program"
+
+## Packages
 import subprocess
 
 try:

@@ -2,6 +2,12 @@
 
 """Example using the timeit package to profile functions."""
 
+__appname__ = 'timeitme.py'
+__author__ = 'Ioan Evans'
+__email__ = 'ie917@ic.ac.uk'
+__version__ = '0.0.1'
+__license__ = "License for this code/program"
+
 #########################################################
 # loops vs. list comprehensions: which is faster?
 #########################################################

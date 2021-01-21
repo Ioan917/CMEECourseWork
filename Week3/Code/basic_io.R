@@ -1,7 +1,16 @@
-#!/usr/bin/env R
+#!/usr/bin/env Rscript --vanilla
 
-# A simple script to illustrate R input-output
-# Run line by line and check inputs to understand what it is doing
+# Title: basic_io.R
+# Author details: Ioan Evans, Contact details: ie917@ic.ac.uk
+# Date: Nov 2020
+# Script and data info: A simple script to illustrate R input-output
+# Copyright statement: none
+
+## Housekeeping
+rm(list = ls())
+graphics.off()
+
+## Run line by line and check inputs to understand what it is doing
 
 MyData <- read.csv("../Data/trees.csv", header = TRUE) # import with headers
 

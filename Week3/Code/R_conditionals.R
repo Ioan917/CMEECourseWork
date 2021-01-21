@@ -1,7 +1,16 @@
-#!/usr/bin/env R
+#!/usr/bin/env Rscript --vanilla
 
-# Checks if an integer is even
+# Title: R_conditionals.R
+# Author details: Ioan Evans, Contact details: ie917@ic.ac.uk
+# Date: Nov 2020
+# Script and data info: Using functions with conditionals.
+# Copyright statement: none
 
+## Housekeeping
+rm(list = ls())
+graphics.off()
+
+## Checks if an integer is even
 is.even <-  function(n = 2) {
     if (n %% 2 == 0) {
         return( paste(n, 'is even!'))
@@ -12,8 +21,7 @@ is.even <-  function(n = 2) {
 
 print(is.even(6))
 
-# Checks if a number is a power of 2
-
+## Checks if a number is a power of 2
 is.power2 <- function(n = 2) {
     if (log2(n) %% 1 == 0) {
         return( paste(n, 'is a power of 2!'))
@@ -24,8 +32,7 @@ is.power2 <- function(n = 2) {
 
 print(is.power2(4))
 
-# Checks if a number is prime
-
+## Checks if a number is prime
 is.prime <- function(n) {
     if (n == 0) {
         return( paste(n, 'is a zero!'))

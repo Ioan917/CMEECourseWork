@@ -3,6 +3,12 @@
 """Five examples of creating variables inside and outside functions 
 i.e. global and local variables"""
 
+__appname__ = 'scope.py'
+__author__ = 'Ioan Evans'
+__email__ = 'ie917@ic.ac.uk'
+__version__ = '0.0.1'
+__license__ = "License for this code/program"
+
 ## 1
 
 _a_global = 10 # a global variable
